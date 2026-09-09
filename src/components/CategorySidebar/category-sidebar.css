@@ -1,0 +1,181 @@
+/* =========================================================
+   CATEGORY SIDEBAR
+========================================================= */
+
+.category-sidebar {
+    width: 280px;
+    max-width: 100%;
+    background: #ffffff;
+    border: 1px solid #e3e8e7;
+    border-radius: 18px;
+    overflow: hidden;
+    position: sticky;
+    top: 100px;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.category-sidebar__header {
+    padding: 22px 22px 16px;
+    border-bottom: 1px solid #edf0ef;
+}
+
+.category-sidebar__header h2 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.2px;
+}
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.category-sidebar__list {
+    padding: 8px;
+    max-height: 650px;
+    overflow-y: auto;
+}
+
+/* Scrollbar */
+
+.category-sidebar__list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.category-sidebar__list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.category-sidebar__list::-webkit-scrollbar-thumb {
+    background: #d5dcda;
+    border-radius: 20px;
+}
+
+/* =========================================================
+   CATEGORY ITEM
+========================================================= */
+
+.category-sidebar__item {
+    width: 100%;
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 14px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #263238;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.category-sidebar__item:hover {
+    background: #f0faf7;
+    color: #07966c;
+}
+
+.category-sidebar__item:hover span:first-child {
+    transform: translateX(2px);
+}
+
+.category-sidebar__item--active {
+    background: #e8f8f3;
+    color: #07966c;
+    font-weight: 700;
+}
+
+.category-sidebar__arrow {
+    font-size: 17px;
+    font-weight: 700;
+    color: #07966c;
+    transition: transform 0.2s ease;
+}
+
+.category-sidebar__item--active .category-sidebar__arrow {
+    transform: translateX(3px);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+    .category-sidebar {
+        position: static;
+        border-radius: 14px;
+    }
+
+    .category-sidebar__header {
+        padding: 18px 18px 14px;
+    }
+
+    .category-sidebar__list {
+        max-height: 360px;
+    }
+
+    .category-sidebar__item {
+        min-height: 44px;
+        font-size: 14px;
+    }
+}
+
+.home-marketplace {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 28px;
+
+    box-sizing: border-box;
+}
+
+.home-marketplace__sidebar {
+    width: 280px;
+    align-self: start;
+}
+
+.home-marketplace__products {
+    min-width: 0;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .home-marketplace {
+        grid-template-columns: 1fr;
+        padding: 28px 20px 60px;
+    }
+
+    .home-marketplace__sidebar {
+        width: 100%;
+    }
+
+    .category-sidebar {
+        width: 100%;
+        position: static;
+    }
+}

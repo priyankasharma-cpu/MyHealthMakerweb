@@ -1,0 +1,907 @@
+/* =========================================================
+   CAMPAIGN CARD
+========================================================= */
+
+.campaign-card {
+    width: 100%;
+    min-height: 225px;
+
+    display: grid;
+
+    /*
+        IMAGE | CONTENT | ACTIONS
+    */
+    grid-template-columns:
+        280px minmax(0, 1fr) 210px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e9e6;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.campaign-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #b9ded2;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.07),
+        0 3px 8px rgba(15, 23, 42, 0.03);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE SECTION
+========================================================= */
+
+.campaign-card__image-wrap {
+    position: relative;
+
+    width: 100%;
+    min-height: 225px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 10px;
+
+    background:
+        linear-gradient(145deg,
+            #f3faf7 0%,
+            #edf7f3 55%,
+            #e8f3ef 100%);
+}
+
+
+/*
+    IMPORTANT:
+
+    No extra white rounded box around image.
+
+    Image uses almost the complete image area.
+*/
+
+.campaign-card__image {
+    display: block;
+
+    width: 100%;
+    height: 205px;
+
+    max-width: 260px;
+    max-height: 215px;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+.campaign-card:hover .campaign-card__image {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+.campaign-card__image-fallback {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 225px;
+
+    color: #07966c;
+
+    font-size: 13px;
+    font-weight: 750;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.campaign-card__badge {
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background: #101514;
+    color: #ffffff;
+
+    font-size: 9px;
+    font-weight: 750;
+
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.campaign-card__content {
+    min-width: 0;
+
+    padding: 21px 26px;
+}
+
+
+/* =========================================================
+   CATEGORY + STATUS
+========================================================= */
+
+.campaign-card__top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 6px;
+}
+
+
+.campaign-card__category {
+    color: #07966c;
+
+    font-size: 13px;
+    font-weight: 750;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+}
+
+
+.campaign-card__status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.campaign-card__status-dot {
+    width: 8px;
+    height: 8px;
+
+    flex: 0 0 8px;
+
+    border-radius: 50%;
+
+    background: #10b981;
+
+    box-shadow:
+        0 0 0 4px #e8f8f2;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.campaign-card__title {
+    margin: 0 0 7px;
+
+    color: #111827;
+
+    font-size: 22px;
+
+    line-height: 1.2;
+
+    font-weight: 750;
+
+    letter-spacing: -0.45px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.campaign-card__description {
+    max-width: 650px;
+
+    margin: 0 0 13px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   CONVERSION RATE
+========================================================= */
+
+.campaign-card__conversion {
+    width: 280px;
+    max-width: 100%;
+
+    margin-bottom: 14px;
+}
+
+
+.campaign-card__conversion-top {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+}
+
+
+.campaign-card__conversion-top span {
+    color: #64748b;
+
+    font-weight: 600;
+}
+
+
+.campaign-card__conversion-top strong {
+    color: #111827;
+
+    font-size: 11px;
+
+    font-weight: 750;
+}
+
+
+/*
+    COMPLETE TRACK WIDTH
+*/
+
+.campaign-card__progress {
+    width: 280px;
+    max-width: 100%;
+
+    height: 6px;
+
+    overflow: hidden;
+
+    background: #e8efec;
+
+    border-radius: 999px;
+}
+
+
+.campaign-card__progress span {
+    display: block;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(90deg,
+            #07966c,
+            #16b985);
+
+    transition:
+        width 0.6s ease;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.campaign-card__details {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.campaign-card__detail {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 7px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+.campaign-card__detail-label {
+    flex: 0 0 auto;
+
+    color: #111827;
+
+    font-weight: 700;
+}
+
+
+.campaign-card__detail-value {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.campaign-card__actions {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 20px;
+
+    background: #fafcfb;
+
+    border-left: 1px solid #edf1ef;
+}
+
+
+/* =========================================================
+   COMMON BUTTON
+========================================================= */
+
+.campaign-card__apply-btn,
+.campaign-card__call-btn {
+    width: 100%;
+
+    min-height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* =========================================================
+   APPLY NOW
+========================================================= */
+
+.campaign-card__apply-btn {
+    border: 1px solid #07966c;
+
+    background: #07966c;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 7px 16px rgba(7, 150, 108, 0.17);
+}
+
+
+.campaign-card__apply-btn:hover {
+    transform: translateY(-2px);
+
+    background: #067e5b;
+
+    box-shadow:
+        0 10px 22px rgba(7, 150, 108, 0.23);
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.campaign-card__btn-arrow {
+    font-size: 15px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.campaign-card__apply-btn:hover .campaign-card__btn-arrow {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   CALL NOW
+========================================================= */
+
+.campaign-card__call-btn {
+    border: 1px solid #dce5e1;
+
+    background: #ffffff;
+
+    color: #1f2937;
+}
+
+
+.campaign-card__call-btn:hover {
+    border-color: #07966c;
+
+    color: #07966c;
+
+    background: #f3fbf8;
+
+    transform: translateY(-2px);
+}
+
+
+.campaign-card__phone-icon {
+    font-size: 13px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .campaign-card {
+        grid-template-columns:
+            200px minmax(0, 1fr) 180px;
+    }
+
+
+    .campaign-card__image-wrap {
+        min-height: 220px;
+    }
+
+
+    .campaign-card__image {
+        width: 100%;
+        height: 195px;
+
+        max-width: 190px;
+        max-height: 200px;
+    }
+
+
+    .campaign-card__content {
+        padding: 19px 20px;
+    }
+
+
+    .campaign-card__conversion {
+        width: 250px;
+    }
+
+
+    .campaign-card__progress {
+        width: 250px;
+    }
+
+
+    .campaign-card__actions {
+        padding: 18px 15px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    /*
+        MOBILE CARD
+
+        Image becomes a full-width top section.
+    */
+
+    .campaign-card {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+
+        border-radius: 16px;
+    }
+
+
+    /* =====================================================
+       MOBILE IMAGE AREA
+    ===================================================== */
+
+    .campaign-card__image-wrap {
+        width: 100%;
+
+        min-height: 190px;
+        height: 190px;
+
+        padding: 8px 12px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+    }
+
+
+    /*
+        IMPORTANT:
+
+        Image now uses almost FULL available width.
+
+        Previous:
+        max-width: 130px ❌
+
+        Now:
+        width: 100% ✅
+    */
+
+    .campaign-card__image {
+        display: block;
+
+        width: 100%;
+        height: 175px;
+
+        max-width: 280px;
+        max-height: 180px;
+
+        object-fit: contain;
+
+        object-position: center;
+    }
+
+
+    /* =====================================================
+       MOBILE BADGE
+    ===================================================== */
+
+    .campaign-card__badge {
+        top: 10px;
+        left: 10px;
+
+        padding: 4px 7px;
+
+        font-size: 8px;
+    }
+
+
+    /* =====================================================
+       MOBILE CONTENT
+    ===================================================== */
+
+    .campaign-card__content {
+        width: 100%;
+
+        padding: 18px;
+    }
+
+
+    .campaign-card__top {
+        margin-bottom: 7px;
+    }
+
+
+    .campaign-card__category {
+        font-size: 12px;
+    }
+
+
+    .campaign-card__status {
+        font-size: 11px;
+    }
+
+
+    .campaign-card__title {
+        font-size: 19px;
+
+        margin-bottom: 7px;
+    }
+
+
+    .campaign-card__description {
+        font-size: 12px;
+
+        line-height: 1.55;
+
+        margin-bottom: 14px;
+    }
+
+
+    /* =====================================================
+       MOBILE CONVERSION
+    ===================================================== */
+
+    .campaign-card__conversion {
+        width: 240px;
+        max-width: 100%;
+
+        margin-bottom: 14px;
+    }
+
+
+    .campaign-card__progress {
+        width: 240px;
+        max-width: 100%;
+    }
+
+
+    /* =====================================================
+       MOBILE DETAILS
+    ===================================================== */
+
+    .campaign-card__details {
+        gap: 7px;
+    }
+
+
+    .campaign-card__detail {
+        font-size: 12px;
+
+        line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       MOBILE ACTIONS
+    ===================================================== */
+
+    .campaign-card__actions {
+        grid-column: 1;
+
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 9px;
+
+        padding: 14px;
+
+        border-top: 1px solid #edf1ef;
+
+        border-left: 0;
+    }
+
+
+    .campaign-card__apply-btn,
+    .campaign-card__call-btn {
+        min-height: 44px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .campaign-card {
+        width: 100%;
+
+        border-radius: 15px;
+    }
+
+
+    /* =====================================================
+       IMAGE — BIG & CLEAR
+    ===================================================== */
+
+    .campaign-card__image-wrap {
+        width: 100%;
+
+        height: 185px;
+        min-height: 185px;
+
+        padding: 5px 8px;
+    }
+
+
+    /*
+        Product gets almost entire image area.
+
+        Don't use 130px here.
+    */
+
+    .campaign-card__image {
+        width: 100%;
+
+        height: 175px;
+
+        max-width: 300px;
+        max-height: 180px;
+
+        object-fit: contain;
+
+        object-position: center;
+    }
+
+
+    /* =====================================================
+       CONTENT
+    ===================================================== */
+
+    .campaign-card__content {
+        padding: 17px;
+    }
+
+
+    .campaign-card__category {
+        font-size: 12px;
+    }
+
+
+    .campaign-card__title {
+        font-size: 18px;
+    }
+
+
+    .campaign-card__description {
+        font-size: 12px;
+
+        line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       CONVERSION
+    ===================================================== */
+
+    .campaign-card__conversion {
+        width: 100%;
+    }
+
+
+    .campaign-card__progress {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       DETAILS
+    ===================================================== */
+
+    .campaign-card__detail {
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+
+    .campaign-card__actions {
+        grid-template-columns: 1fr 1fr;
+
+        padding: 12px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .campaign-card__image-wrap {
+        height: 175px;
+
+        min-height: 175px;
+    }
+
+
+    .campaign-card__image {
+        height: 165px;
+
+        max-width: 280px;
+    }
+
+
+    .campaign-card__content {
+        padding: 15px;
+    }
+
+
+    .campaign-card__title {
+        font-size: 17px;
+    }
+
+
+    .campaign-card__description {
+        font-size: 11px;
+    }
+
+
+    .campaign-card__detail {
+        font-size: 10.5px;
+    }
+
+
+    .campaign-card__actions {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 7px;
+
+        padding: 10px;
+    }
+}

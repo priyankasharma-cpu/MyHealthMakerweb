@@ -1,0 +1,633 @@
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #edf1ef;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+
+/* =========================================================
+   HEADER CONTAINER
+========================================================= */
+
+.header-container {
+    width: min(1320px, calc(100% - 48px));
+
+    min-height: 78px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.brand-logo {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+}
+
+.brand-logo__image {
+    display: block;
+
+    width: 205px;
+    height: 52px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-navigation {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-link {
+    position: relative;
+
+    border: 0;
+    background: transparent;
+
+    padding: 8px 0;
+
+    color: #26332f;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #07966c;
+}
+
+.nav-link.active {
+    color: #07966c;
+}
+
+.nav-link.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -8px;
+
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: #07966c;
+}
+
+
+/* Button ko normal link jaisa */
+.nav-link-button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   FIND OFFERS SEARCH
+========================================================= */
+
+.nav-search-form {
+    width: 190px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 13px;
+
+    border: 1px solid #dce6e2;
+
+    border-radius: 999px;
+
+    background: #f8fbfa;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.nav-search-form:focus-within {
+    background: #ffffff;
+
+    border-color: #07966c;
+
+    box-shadow:
+        0 0 0 4px rgba(7, 150, 108, 0.08);
+}
+
+.nav-search-icon {
+    flex: 0 0 auto;
+
+    color: #64748b;
+}
+
+.nav-search-form input {
+    width: 100%;
+
+    min-width: 0;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    color: #111827;
+
+    font-family: inherit;
+
+    font-size: 12px;
+}
+
+.nav-search-form input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.header-phone {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 10px 12px;
+
+    color: #17211e;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    border-radius: 999px;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.header-phone:hover {
+    color: #07966c;
+
+    background: #f0faf6;
+}
+
+.header-phone__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #07966c;
+}
+
+.header-phone__number {
+    letter-spacing: -0.1px;
+}
+
+
+/* =========================================================
+   EXPLORE OFFERS
+========================================================= */
+
+.header-cta {
+    min-height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 0 19px;
+
+    border-radius: 999px;
+
+    background: #101514;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 750;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.header-cta:hover {
+    transform: translateY(-2px);
+
+    background: #07966c;
+
+    box-shadow:
+        0 10px 24px rgba(7, 150, 108, 0.2);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-button {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+
+    border: 1px solid #dfe7e4;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #17211e;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+.mobile-navigation {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .header-container {
+        width: calc(100% - 32px);
+
+        gap: 22px;
+    }
+
+    .desktop-navigation {
+        gap: 20px;
+    }
+
+    .nav-search-form {
+        width: 160px;
+    }
+
+    .header-phone__number {
+        display: none;
+    }
+
+    .brand-logo__image {
+        width: 185px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .header-container {
+        min-height: 70px;
+
+        width: calc(100% - 28px);
+    }
+
+
+    .brand-logo__image {
+        width: 175px;
+        height: 48px;
+    }
+
+
+    .desktop-navigation {
+        display: none;
+    }
+
+
+    .header-actions {
+        margin-left: auto;
+    }
+
+
+    .header-phone {
+        padding: 10px;
+    }
+
+
+    .header-phone__number {
+        display: none;
+    }
+
+
+    .header-cta {
+        display: none;
+    }
+
+
+    .mobile-menu-button {
+        display: flex;
+    }
+
+
+    .mobile-navigation {
+        display: flex;
+        flex-direction: column;
+
+        gap: 5px;
+
+        padding: 14px;
+
+        border-top: 1px solid #edf1ef;
+
+        background: #ffffff;
+
+        box-shadow:
+            0 15px 35px rgba(15, 23, 42, 0.08);
+    }
+
+
+    .mobile-nav-link {
+        display: flex;
+        align-items: center;
+
+        min-height: 45px;
+
+        padding: 0 13px;
+
+        border-radius: 10px;
+
+        border: 0;
+
+        background: transparent;
+
+        color: #17211e;
+
+        font-family: inherit;
+
+        font-size: 14px;
+        font-weight: 650;
+
+        text-decoration: none;
+
+        text-align: left;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-nav-link:hover {
+        background: #f1faf7;
+
+        color: #07966c;
+    }
+
+
+    .mobile-nav-button {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       MOBILE SEARCH
+    ===================================================== */
+
+    .mobile-search-form {
+        display: flex;
+        align-items: center;
+
+        gap: 8px;
+
+        margin: 8px 0;
+
+        padding: 5px 6px 5px 13px;
+
+        min-height: 48px;
+
+        border: 1px solid #dce6e2;
+
+        border-radius: 12px;
+
+        background: #f8fbfa;
+    }
+
+
+    .mobile-search-form svg {
+        flex: 0 0 auto;
+
+        color: #64748b;
+    }
+
+
+    .mobile-search-form input {
+        flex: 1;
+
+        min-width: 0;
+
+        border: 0;
+        outline: 0;
+
+        background: transparent;
+
+        font-family: inherit;
+
+        font-size: 13px;
+    }
+
+
+    .mobile-search-form button {
+        min-height: 38px;
+
+        padding: 0 14px;
+
+        border: 0;
+
+        border-radius: 9px;
+
+        background: #07966c;
+
+        color: #ffffff;
+
+        font-family: inherit;
+
+        font-size: 11px;
+        font-weight: 750;
+
+        cursor: pointer;
+    }
+
+
+    /* =====================================================
+       MOBILE PHONE
+    ===================================================== */
+
+    .mobile-phone {
+        display: flex;
+        align-items: center;
+
+        gap: 9px;
+
+        min-height: 45px;
+
+        padding: 0 13px;
+
+        border-radius: 10px;
+
+        background: #f4faf8;
+
+        color: #07966c;
+
+        text-decoration: none;
+
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+
+    /* =====================================================
+       MOBILE CTA
+    ===================================================== */
+
+    .mobile-header-cta {
+        min-height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        margin-top: 7px;
+
+        border-radius: 12px;
+
+        background: #101514;
+
+        color: #ffffff;
+
+        text-decoration: none;
+
+        font-size: 13px;
+        font-weight: 750;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .header-container {
+        width: calc(100% - 20px);
+    }
+
+
+    .brand-logo__image {
+        width: 155px;
+        height: 45px;
+    }
+
+
+    .header-phone {
+        display: none;
+    }
+
+
+    .mobile-search-form button {
+        padding: 0 11px;
+    }
+}

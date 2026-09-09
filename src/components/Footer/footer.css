@@ -1,0 +1,507 @@
+/* =========================================================
+   MYHEALTHMAKER
+   PREMIUM FOOTER
+========================================================= */
+
+.site-footer {
+    width: 100%;
+    background: #0b100e;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.footer-container {
+    width: 100%;
+    max-width: 1320px;
+
+    margin: 0 auto;
+
+    padding-left: 32px;
+    padding-right: 32px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN FOOTER
+========================================================= */
+
+.footer-main {
+    position: relative;
+
+    padding: 76px 0 68px;
+
+    background:
+        radial-gradient(circle at 12% 18%,
+            rgba(21, 150, 106, 0.10),
+            transparent 30%),
+        radial-gradient(circle at 88% 80%,
+            rgba(21, 150, 106, 0.055),
+            transparent 28%),
+        #0e1411;
+}
+
+
+/* subtle top glow */
+
+.footer-main::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 160px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(90deg,
+            transparent,
+            #31b783,
+            transparent);
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+.footer-main .footer-container {
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 2fr) minmax(140px, 1fr) minmax(140px, 1fr) minmax(140px, 1fr);
+
+    gap: 65px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    max-width: 390px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.footer-logo {
+    display: inline-flex;
+
+    align-items: center;
+
+    text-decoration: none;
+}
+
+.footer-logo__image {
+    width: 165px;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.footer-description {
+    max-width: 370px;
+
+    margin: 23px 0 27px;
+
+    color: #99a59f;
+
+    font-size: 13.5px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.footer-primary-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 44px;
+
+    padding: 0 19px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: #101512;
+
+    font-size: 12.5px;
+    font-weight: 750;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.footer-primary-btn:hover {
+    transform: translateY(-3px);
+
+    background: #15966a;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 12px 30px rgba(21, 150, 106, 0.20);
+}
+
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    margin: 2px 0 21px;
+
+    color: #f1f5f3;
+
+    font-size: 13px;
+    font-weight: 750;
+
+    letter-spacing: 0.1px;
+}
+
+.footer-column a {
+    position: relative;
+
+    margin-bottom: 13px;
+
+    color: #89958f;
+
+    font-size: 12.5px;
+    font-weight: 450;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #35bb87;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   TRUST STRIP
+========================================================= */
+
+.footer-trust {
+    border-top: 1px solid rgba(255, 255, 255, 0.075);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+
+    background: #121916;
+}
+
+.footer-trust-inner {
+    min-height: 92px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 35px;
+}
+
+
+/* =========================================================
+   TRUST ITEM
+========================================================= */
+
+.trust-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+.trust-icon {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(49, 183, 131, 0.22);
+    border-radius: 10px;
+
+    background: rgba(21, 150, 106, 0.11);
+
+    color: #31b783;
+}
+
+.trust-item div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.trust-item strong {
+    color: #e6ece9;
+
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+.trust-item div span {
+    color: #75817b;
+
+    font-size: 10.5px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+    background: #080c0a;
+}
+
+.footer-bottom-inner {
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-copyright {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.footer-copyright p {
+    margin: 0;
+
+    color: #68736e;
+
+    font-size: 10.5px;
+}
+
+.footer-copyright__dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #15966a;
+
+    box-shadow:
+        0 0 0 4px rgba(21, 150, 106, 0.08);
+}
+
+
+/* =========================================================
+   LEGAL
+========================================================= */
+
+.footer-legal {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+}
+
+.footer-legal a {
+    color: #707b76;
+
+    font-size: 10.5px;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+    color: #35bb87;
+}
+
+.footer-legal>span {
+    color: #303834;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .footer-main .footer-container {
+        grid-template-columns:
+            1.5fr 1fr 1fr;
+
+        gap: 48px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+
+        max-width: 620px;
+    }
+
+    .footer-trust-inner {
+        flex-wrap: wrap;
+
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .footer-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer-main {
+        padding: 55px 0 45px;
+    }
+
+    .footer-main .footer-container {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 40px 25px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-description {
+        max-width: 100%;
+    }
+
+    .footer-trust-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 21px;
+
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .footer-bottom-inner {
+        min-height: auto;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 14px;
+
+        padding-top: 23px;
+        padding-bottom: 23px;
+    }
+
+    .footer-legal {
+        flex-wrap: wrap;
+
+        gap: 8px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .footer-main .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-column {
+        width: 100%;
+    }
+
+    .footer-logo__image {
+        width: 150px;
+    }
+}

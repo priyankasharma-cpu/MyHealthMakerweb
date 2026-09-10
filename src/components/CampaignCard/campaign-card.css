@@ -508,6 +508,51 @@
     line-height: 1;
 }
 
+/* =========================================================
+   CALL NOW — PHONE NUMBER
+========================================================= */
+
+.campaign-card__call-btn {
+    flex-wrap: wrap;
+
+    padding: 7px 14px;
+}
+
+
+.campaign-card__phone-number {
+    font-size: 11px;
+
+    font-weight: 750;
+
+    color: inherit;
+
+    white-space: nowrap;
+}
+
+
+.campaign-card__call-btn:hover .campaign-card__phone-number {
+    color: #07966c;
+}
+
+
+@media (max-width: 1050px) {
+
+    .campaign-card__phone-number {
+        font-size: 10px;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .campaign-card__call-btn {
+        padding: 7px 10px;
+    }
+
+    .campaign-card__phone-number {
+        font-size: 10px;
+    }
+}
 
 /* =========================================================
    TABLET
@@ -903,5 +948,125 @@
         gap: 7px;
 
         padding: 10px;
+    }
+}
+
+/* =========================================================
+   VIEW DETAILS — MATCH OTHER ACTION BUTTONS
+========================================================= */
+
+.campaign-card__details-btn {
+    width: 100%;
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 16px;
+
+    border-radius: 999px;
+
+    background: #ffffff;
+    border: 1px solid #dce5e1;
+
+    color: #1f2937;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 750;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* Hover */
+
+.campaign-card__details-btn:hover {
+    transform: translateY(-2px);
+
+    background: #f3fbf8;
+
+    border-color: #07966c;
+
+    color: #07966c;
+
+    box-shadow:
+        0 7px 16px rgba(7, 150, 108, 0.10);
+}
+
+
+/* Arrow */
+
+.campaign-card__details-btn .campaign-card__btn-arrow {
+    font-size: 15px;
+    line-height: 1;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.campaign-card__details-btn:hover .campaign-card__btn-arrow {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   KEEP ALL ACTION BUTTONS EXACTLY SAME HEIGHT
+========================================================= */
+
+.campaign-card__details-btn,
+.campaign-card__apply-btn,
+.campaign-card__call-btn {
+    width: 100%;
+    min-height: 42px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .campaign-card__details-btn,
+    .campaign-card__apply-btn,
+    .campaign-card__call-btn {
+        min-height: 44px;
+        width: 100%;
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .campaign-card__details-btn,
+    .campaign-card__apply-btn,
+    .campaign-card__call-btn {
+        min-height: 42px;
+        width: 100%;
+        font-size: 11px;
     }
 }

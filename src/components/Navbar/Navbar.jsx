@@ -1,37 +1,26 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 
-function Navbar() {
+function Navbar({ searchValue = "", onSearchChange }) {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [search, setSearch] = useState("");
 
-    const navigate = useNavigate();
-
-    // =====================================================
-    // SEARCH OFFERS
-    // =====================================================
     const handleSearch = (e) => {
         e.preventDefault();
 
-        const query = search.trim();
+        const query = searchValue.trim();
 
         if (!query) {
-            navigate("/#offers");
+            window.location.href = "/#offers";
             return;
         }
 
-        // Search query URL me jayegi
-        navigate(`/?search=${encodeURIComponent(query)}#offers`);
+        window.location.href =
+            `/?search=${encodeURIComponent(query)}#offers`;
 
         setMobileOpen(false);
     };
 
-    // =====================================================
-    // SHOP
-    // =====================================================
-    const handleShop = () => {
-        navigate("/#offers");
+    const closeMobile = () => {
         setMobileOpen(false);
     };
 
@@ -63,16 +52,37 @@ function Navbar() {
 
                 <nav className="desktop-navigation">
 
-                    {/* Marketplace */}
                     <a
                         href="/"
-                        className="nav-link active"
+                        className="nav-link nav-link--active"
                     >
-                        Marketplace
+                        Home
+                    </a>
+
+                    <a
+                        href="/offers"
+                        className="nav-link"
+                    >
+                        Products
+                    </a>
+
+                    <a
+                        href="/about"
+                        className="nav-link"
+                    >
+                        About Us
+                    </a>
+
+                    <a
+                        href="/contact"
+                        className="nav-link"
+                    >
+                        Contact
                     </a>
 
 
-                    {/* Find Offers Search */}
+                    {/* SEARCH */}
+
                     <form
                         className="nav-search-form"
                         onSubmit={handleSearch}
@@ -84,7 +94,6 @@ function Navbar() {
                             height="17"
                             viewBox="0 0 24 24"
                             fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
                         >
                             <circle
                                 cx="11"
@@ -102,55 +111,54 @@ function Navbar() {
                             />
                         </svg>
 
-
                         <input
                             type="search"
-                            value={search}
+                            value={searchValue}
                             onChange={(e) =>
-                                setSearch(e.target.value)
+                                onSearchChange?.(e.target.value)
                             }
                             placeholder="Find offers..."
                             aria-label="Find offers"
                         />
 
+                        {searchValue && (
+                            <button
+                                type="button"
+                                className="nav-search-clear"
+                                onClick={() =>
+                                    onSearchChange?.("")
+                                }
+                                aria-label="Clear search"
+                            >
+                                ×
+                            </button>
+                        )}
+
                     </form>
-
-
-                    {/* Contact */}
-                    <a
-                        href="/Contact"
-                        className="nav-link"
-                    >
-                        Contact
-                    </a>
 
                 </nav>
 
 
                 {/* =====================================================
-                    RIGHT SIDE ACTIONS
+                    RIGHT ACTIONS
                 ===================================================== */}
 
                 <div className="header-actions">
 
-
-                    {/* =================================================
-                        CALL NOW
-                    ================================================= */}
+                    {/* PHONE */}
 
                     <a
-                        href="tel:+8666184718"
+                        href="tel:+18666184718"
                         className="header-phone"
                         aria-label="Call MyHealthMaker"
                     >
 
                         <span className="header-phone__icon">
                             <svg
-                                width="17"
-                                height="17"
+                                width="16"
+                                height="16"
                                 viewBox="0 0 24 24"
                                 fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
                             >
                                 <path
                                     d="M22 16.92V20a2 2 0 0 1-2.18 2
@@ -166,7 +174,7 @@ function Navbar() {
                                     c.86.29 1.74.5 2.64.62
                                     A2 2 0 0 1 22 16.92Z"
                                     stroke="currentColor"
-                                    strokeWidth="1.7"
+                                    strokeWidth="1.8"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                 />
@@ -174,31 +182,25 @@ function Navbar() {
                         </span>
 
                         <span className="header-phone__number">
-                            +1 8666184718
+                            +1 866 618 4718
                         </span>
 
                     </a>
 
 
-                    {/* =================================================
-                        EXPLORE OFFERS
-                    ================================================= */}
+                    {/* EXPLORE */}
 
                     <a
-                        href="#offers"
+                        href="/#offers"
                         className="header-cta"
                     >
-
-                        <span>
-                            Explore Offers
-                        </span>
+                        <span>Explore Offers</span>
 
                         <svg
                             width="15"
                             height="15"
                             viewBox="0 0 24 24"
                             fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
                         >
                             <path
                                 d="M5 12H19"
@@ -215,15 +217,12 @@ function Navbar() {
                                 strokeLinejoin="round"
                             />
                         </svg>
-
                     </a>
 
                 </div>
 
 
-                {/* =====================================================
-                    MOBILE MENU BUTTON
-                ===================================================== */}
+                {/* MOBILE MENU */}
 
                 <button
                     type="button"
@@ -235,60 +234,7 @@ function Navbar() {
                     aria-expanded={mobileOpen}
                 >
 
-                    {mobileOpen ? (
-
-                        <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                        >
-                            <path
-                                d="M6 6L18 18"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                            />
-
-                            <path
-                                d="M18 6L6 18"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                            />
-                        </svg>
-
-                    ) : (
-
-                        <svg
-                            width="21"
-                            height="21"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                        >
-                            <path
-                                d="M4 7H20"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                            />
-
-                            <path
-                                d="M4 12H20"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                            />
-
-                            <path
-                                d="M4 17H20"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                            />
-                        </svg>
-
-                    )}
+                    {mobileOpen ? "×" : "☰"}
 
                 </button>
 
@@ -300,32 +246,43 @@ function Navbar() {
             ===================================================== */}
 
             {mobileOpen && (
-
                 <div className="mobile-navigation">
 
-                    {/* Marketplace */}
                     <a
                         href="/"
                         className="mobile-nav-link"
-                        onClick={() =>
-                            setMobileOpen(false)
-                        }
+                        onClick={closeMobile}
                     >
-                        Marketplace
+                        Home
+                    </a>
+
+                    <a
+                        href="/offers"
+                        className="mobile-nav-link"
+                        onClick={closeMobile}
+                    >
+                        Products
+                    </a>
+
+                    <a
+                        href="/about"
+                        className="mobile-nav-link"
+                        onClick={closeMobile}
+                    >
+                        About Us
+                    </a>
+
+                    <a
+                        href="/contact"
+                        className="mobile-nav-link"
+                        onClick={closeMobile}
+                    >
+                        Contact
                     </a>
 
 
-                    {/* Shop */}
-                    <button
-                        type="button"
-                        className="mobile-nav-link mobile-nav-button"
-                        onClick={handleShop}
-                    >
-                        Shop
-                    </button>
+                    {/* MOBILE SEARCH */}
 
-
-                    {/* Mobile Search */}
                     <form
                         className="mobile-search-form"
                         onSubmit={handleSearch}
@@ -353,12 +310,11 @@ function Navbar() {
                             />
                         </svg>
 
-
                         <input
                             type="search"
-                            value={search}
+                            value={searchValue}
                             onChange={(e) =>
-                                setSearch(e.target.value)
+                                onSearchChange?.(e.target.value)
                             }
                             placeholder="Find offers..."
                         />
@@ -370,66 +326,28 @@ function Navbar() {
                     </form>
 
 
-                    {/* Contact */}
-                    <a
-                        href="/Contact"
-                        className="mobile-nav-link"
-                        onClick={() =>
-                            setMobileOpen(false)
-                        }
-                    >
-                        Contact
-                    </a>
+                    {/* MOBILE PHONE */}
 
-
-                    {/* Call */}
                     <a
-                        href="tel:+18005550199"
+                        href="tel:+18666184718"
                         className="mobile-phone"
-                        onClick={() =>
-                            setMobileOpen(false)
-                        }
+                        onClick={closeMobile}
                     >
                         <span>☎</span>
-                        <span>+1 8666184718</span>
+                        <span>+1 866 618 4718</span>
                     </a>
 
 
-                    {/* Explore Offers */}
                     <a
-                        href="#offers"
+                        href="/#offers"
                         className="mobile-header-cta"
-                        onClick={() =>
-                            setMobileOpen(false)
-                        }
+                        onClick={closeMobile}
                     >
                         Explore Offers
-
-                        <svg
-                            width="15"
-                            height="15"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                        >
-                            <path
-                                d="M5 12H19"
-                                stroke="currentColor"
-                                strokeWidth="1.8"
-                                strokeLinecap="round"
-                            />
-
-                            <path
-                                d="M13 6L19 12L13 18"
-                                stroke="currentColor"
-                                strokeWidth="1.8"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
+                        <span>→</span>
                     </a>
 
                 </div>
-
             )}
 
         </header>

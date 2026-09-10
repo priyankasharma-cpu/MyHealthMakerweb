@@ -1,0 +1,443 @@
+/* =========================================================
+   FLOATING CONTACT ACTIONS
+========================================================= */
+
+.floating-actions {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* =========================================================
+   BASE BUTTON
+========================================================= */
+
+.floating-action {
+    position: relative;
+
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    overflow: visible;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.floating-action__icon {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-action__icon svg {
+    display: block;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.floating-whatsapp {
+    background: #25D366;
+
+    box-shadow:
+        0 8px 24px rgba(37, 211, 102, 0.28);
+
+    animation: whatsappGlow 2.5s ease-in-out infinite;
+}
+
+
+/* WhatsApp hover */
+
+.floating-whatsapp:hover {
+    transform: translateY(-4px) scale(1.05);
+
+    background: #25D366;
+
+    box-shadow:
+        0 10px 28px rgba(37, 211, 102, 0.42),
+        0 0 0 5px rgba(37, 211, 102, 0.10);
+}
+
+
+/* WhatsApp icon */
+
+.floating-whatsapp .floating-action__icon svg {
+    color: #ffffff;
+
+    animation: whatsappIcon 2.5s ease-in-out infinite;
+}
+
+
+/* WhatsApp pulse ring */
+
+.floating-whatsapp::before {
+    content: "";
+
+    position: absolute;
+    inset: -4px;
+
+    border: 2px solid rgba(37, 211, 102, 0.38);
+    border-radius: 50%;
+
+    animation: whatsappRing 2.5s ease-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CALL BUTTON
+========================================================= */
+
+.floating-call {
+    background: #07966C;
+
+    box-shadow:
+        0 8px 24px rgba(7, 150, 108, 0.28);
+
+    animation: callGlow 2s ease-in-out infinite;
+}
+
+
+/* Call hover */
+
+.floating-call:hover {
+    transform: translateY(-4px) scale(1.05);
+
+    background: #08A875;
+
+    box-shadow:
+        0 10px 30px rgba(7, 150, 108, 0.45),
+        0 0 0 5px rgba(7, 150, 108, 0.10);
+}
+
+
+/* =========================================================
+   CALL RING WAVE 1
+========================================================= */
+
+.floating-call::before {
+    content: "";
+
+    position: absolute;
+    inset: -5px;
+
+    border: 2px solid rgba(7, 150, 108, 0.45);
+    border-radius: 50%;
+
+    animation: callRing 1.8s ease-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CALL RING WAVE 2
+========================================================= */
+
+.floating-call::after {
+    content: "";
+
+    position: absolute;
+    inset: -5px;
+
+    border: 2px solid rgba(7, 150, 108, 0.25);
+    border-radius: 50%;
+
+    animation: callRing 1.8s ease-out 0.7s infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   PHONE ICON
+========================================================= */
+
+.floating-call .floating-action__icon svg {
+    color: #ffffff;
+
+    transform-origin: center;
+
+    animation: phoneRing 1.6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.floating-action__label {
+    position: absolute;
+
+    right: 64px;
+
+    top: 50%;
+
+    transform: translateY(-50%) translateX(8px);
+
+    padding: 8px 13px;
+
+    border-radius: 8px;
+
+    background: #17221f;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    pointer-events: none;
+}
+
+
+.floating-action:hover .floating-action__label {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(-50%) translateX(0);
+}
+
+
+/* =========================================================
+   CALL PHONE RING
+========================================================= */
+
+@keyframes phoneRing {
+
+    0%,
+    15%,
+    30%,
+    45%,
+    60%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    4% {
+        transform: rotate(-18deg);
+    }
+
+    8% {
+        transform: rotate(18deg);
+    }
+
+    12% {
+        transform: rotate(-15deg);
+    }
+
+    16% {
+        transform: rotate(15deg);
+    }
+
+    22% {
+        transform: rotate(-10deg);
+    }
+
+    26% {
+        transform: rotate(10deg);
+    }
+}
+
+
+/* =========================================================
+   CALL EXPANDING RING
+========================================================= */
+
+@keyframes callRing {
+
+    0% {
+        transform: scale(0.85);
+        opacity: 0.75;
+    }
+
+    70% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   CALL GLOW
+========================================================= */
+
+@keyframes callGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 8px 24px rgba(7, 150, 108, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 28px rgba(7, 150, 108, 0.38),
+            0 0 24px rgba(7, 150, 108, 0.20);
+    }
+}
+
+
+/* =========================================================
+   WHATSAPP GLOW
+========================================================= */
+
+@keyframes whatsappGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 8px 24px rgba(37, 211, 102, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 28px rgba(37, 211, 102, 0.38),
+            0 0 24px rgba(37, 211, 102, 0.18);
+    }
+}
+
+
+/* =========================================================
+   WHATSAPP ICON ANIMATION
+========================================================= */
+
+@keyframes whatsappIcon {
+
+    0%,
+    70%,
+    100% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.10);
+    }
+
+    80% {
+        transform: scale(0.96);
+    }
+
+    85% {
+        transform: scale(1.07);
+    }
+}
+
+
+/* =========================================================
+   WHATSAPP RING
+========================================================= */
+
+@keyframes whatsappRing {
+
+    0% {
+        transform: scale(0.85);
+        opacity: 0.55;
+    }
+
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .floating-actions {
+        right: 16px;
+        bottom: 16px;
+        gap: 11px;
+    }
+
+    .floating-action {
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-action__label {
+        display: none;
+    }
+
+    .floating-whatsapp .floating-action__icon svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .floating-call .floating-action__icon svg {
+        width: 21px;
+        height: 21px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .floating-whatsapp,
+    .floating-call,
+    .floating-whatsapp .floating-action__icon svg,
+    .floating-call .floating-action__icon svg,
+    .floating-whatsapp::before,
+    .floating-call::before,
+    .floating-call::after {
+        animation: none;
+    }
+}

@@ -4,7 +4,7 @@ import "./hero-carousel.css";
 const heroBanners = [
     {
         id: 1,
-        image: "/public/hero-banners/herobnner1.png",
+        image: "/hero-banners/herobnner1.png",
         product: "GLP-1 Medication",
         link: "https://example.com/glp1",
     },
@@ -12,7 +12,7 @@ const heroBanners = [
     // Future banners yahan add karna
     {
         id: 2,
-        image: "/public/hero-banners/herobnner7.png",
+        image: "/hero-banners/herobnner7.png",
         product: "Weight Loss",
         link: "https://example.com/weight-loss",
     },
@@ -20,7 +20,7 @@ const heroBanners = [
 
     {
         id: 3,
-        image: "/public/hero-banners/herobanner2.png",
+        image: "/hero-banners/herobanner2.png",
         product: "Beauty",
         link: "https://example.com/weight-loss",
     },
@@ -28,35 +28,35 @@ const heroBanners = [
 
     {
         id: 4,
-        image: "/public/hero-banners/herobanner3.png",
+        image: "/hero-banners/herobanner3.png",
         product: "Beauty",
         link: "https://example.com/weight-loss",
     },
 
     {
         id: 5,
-        image: "/public/hero-banners/herobanner4.png",
+        image: "/hero-banners/herobanner4.png",
         product: "Brain Health",
         link: "https://example.com/weight-loss",
     },
 
     {
         id: 6,
-        image: "/public/hero-banners/herobanner5.png",
+        image: "/hero-banners/herobanner5.png",
         product: "Beauty",
         link: "https://example.com/weight-loss",
     },
 
     {
         id: 7,
-        image: "/public/hero-banners/herobnner6.png",
+        image: "/hero-banners/herobnner6.png",
         product: "Body Health",
         link: "https://example.com/weight-loss",
     },
 
     {
         id: 8,
-        image: "/public/hero-banners/herobnner8.png",
+        image: "/hero-banners/herobnner8.png",
         product: "Male Enhancement",
         link: "https://example.com/weight-loss",
     },

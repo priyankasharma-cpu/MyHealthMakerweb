@@ -212,50 +212,274 @@
 
 
 /* =========================================================
-   PHONE
+   PREMIUM PHONE BUTTON
 ========================================================= */
 
 .header-phone {
+    position: relative;
+
     display: inline-flex;
     align-items: center;
+    justify-content: center;
 
-    gap: 7px;
+    gap: 8px;
 
-    padding: 10px 12px;
+    min-height: 42px;
+    padding: 0 14px;
 
-    color: #17211e;
+    border: 1px solid #048a62;
+    border-radius: 999px;
+
+    background: #07966c;
+    color: #ffffff;
 
     text-decoration: none;
 
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 11.5px;
+    font-weight: 750;
 
     white-space: nowrap;
 
-    border-radius: 999px;
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 16px rgba(7, 150, 108, 0.10);
 
     transition:
-        color 0.2s ease,
-        background 0.2s ease;
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
+
+/* =========================================================
+   HOVER — PREMIUM GREEN GLOW
+========================================================= */
 
 .header-phone:hover {
-    color: #07966c;
+    transform: translateY(-3px);
 
-    background: #f0faf6;
+    background: #08a875;
+    border-color: #08a875;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(7, 150, 108, 0.22),
+        0 0 0 4px rgba(7, 150, 108, 0.08),
+        0 0 28px rgba(7, 150, 108, 0.25);
 }
 
+
+/* =========================================================
+   GLOW RING
+========================================================= */
+
+.header-phone::before {
+    content: "";
+
+    position: absolute;
+    inset: -2px;
+
+    border-radius: inherit;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    opacity: 0;
+
+    transform: scale(0.94);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    pointer-events: none;
+}
+
+
+.header-phone:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   SHINE SWEEP
+========================================================= */
+
+.header-phone::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 45%;
+    height: 100%;
+
+    background: linear-gradient(105deg,
+            transparent,
+            rgba(255, 255, 255, 0.30),
+            transparent);
+
+    transform: skewX(-20deg);
+
+    transition: left 0.65s ease;
+
+    pointer-events: none;
+}
+
+
+.header-phone:hover::after {
+    left: 135%;
+}
+
+
+/* =========================================================
+   PHONE ICON
+========================================================= */
+
 .header-phone__icon {
+    position: relative;
+    z-index: 2;
+
+    width: 25px;
+    height: 25px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: #ffffff;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.header-phone:hover .header-phone__icon {
+    transform: rotate(-8deg) scale(1.08);
+
+    background: rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.18);
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   PHONE NUMBER
+========================================================= */
+
+.header-phone__number {
+    position: relative;
+    z-index: 2;
+
+    letter-spacing: -0.15px;
+
+    transition:
+        letter-spacing 0.3s ease;
+}
+
+
+.header-phone:hover .header-phone__number {
+    letter-spacing: 0;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   ACTIVE / CLICK
+========================================================= */
+
+.header-phone:active {
+    transform: translateY(-1px) scale(0.97);
+
+    box-shadow:
+        0 4px 12px rgba(7, 150, 108, 0.20);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.header-phone:focus-visible {
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px #ffffff,
+        0 0 0 6px rgba(7, 150, 108, 0.55),
+        0 8px 22px rgba(7, 150, 108, 0.20);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .header-phone,
+    .header-phone::before,
+    .header-phone::after,
+    .header-phone__icon,
+    .header-phone__number {
+        transition: none;
+    }
+}
+
+
+
+/* =========================================================
+   SEARCH CLEAR
+========================================================= */
+
+.nav-search-clear {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #94a3a0;
+
+    font-size: 17px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-search-clear:hover {
+    background: #e8f5f0;
     color: #07966c;
 }
 
-.header-phone__number {
-    letter-spacing: -0.1px;
-}
 
 
 /* =========================================================

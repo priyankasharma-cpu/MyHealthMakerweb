@@ -36,9 +36,10 @@ function Footer() {
                         </a>
 
                         <p className="footer-description">
-                            Explore health, wellness, beauty, and lifestyle
-                            products from a curated selection of offers and
-                            resources.
+                            MyHealthMaker is a modern health and wellness
+                            marketplace designed to help people discover
+                            products, resources, and offers that fit their
+                            everyday lifestyle.
                         </p>
 
                         <a
@@ -176,7 +177,9 @@ function Footer() {
 
                         <div>
                             <strong>Curated Marketplace</strong>
-                            <span>Explore selected health & wellness offers</span>
+                            <span>
+                                Explore selected health & wellness offers
+                            </span>
                         </div>
 
                     </div>
@@ -202,7 +205,9 @@ function Footer() {
 
                         <div>
                             <strong>Privacy Focused</strong>
-                            <span>Designed with responsible data practices</span>
+                            <span>
+                                Designed with responsible data practices
+                            </span>
                         </div>
 
                     </div>
@@ -228,7 +233,101 @@ function Footer() {
 
                         <div>
                             <strong>Easy to Explore</strong>
-                            <span>Simple access to products & resources</span>
+                            <span>
+                                Simple access to products & resources
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {/* =====================================================
+                HEALTH & MARKETPLACE DISCLAIMER
+            ===================================================== */}
+
+            <div className="footer-disclaimer">
+
+                <div className="footer-container">
+
+                    <div className="footer-disclaimer__inner">
+
+                        <div className="footer-disclaimer__icon">
+
+                            <svg
+                                width="17"
+                                height="17"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M12 9V13"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                />
+
+                                <path
+                                    d="M12 17H12.01"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                />
+
+                                <path
+                                    d="M10.3 3.8L2.9 17.2C2.2 18.5 3.1 20 4.6 20H19.4C20.9 20 21.8 18.5 21.1 17.2L13.7 3.8C13 2.5 11 2.5 10.3 3.8Z"
+                                    stroke="currentColor"
+                                    strokeWidth="1.6"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
+
+                        </div>
+
+
+                        <div className="footer-disclaimer__content">
+
+                            <h3>
+                                Important Information
+                            </h3>
+
+                            <p>
+                                MyHealthMaker is an online health and wellness
+                                marketplace that helps users discover products,
+                                resources, and promotional offers from third-party
+                                providers. We do not manufacture, sell, or provide
+                                medical products, treatments, or healthcare services
+                                unless specifically stated.
+                            </p>
+
+                            <p>
+                                Information presented on this website is provided
+                                for general informational and educational purposes
+                                only and should not be considered medical advice,
+                                diagnosis, or treatment. Product descriptions,
+                                claims, pricing, availability, and other information
+                                may be provided by or sourced from third-party
+                                providers and may change without notice.
+                            </p>
+
+                            <p>
+                                MyHealthMaker may receive compensation when users
+                                click on certain links or take an action through
+                                participating offers. This compensation may affect
+                                how and where offers are displayed, but it does not
+                                change the price you pay to the third-party provider.
+                            </p>
+
+                            <p>
+                                Before purchasing or using any product, please
+                                review the information provided by the applicable
+                                provider and consult a qualified healthcare
+                                professional when appropriate.
+                            </p>
+
                         </div>
 
                     </div>

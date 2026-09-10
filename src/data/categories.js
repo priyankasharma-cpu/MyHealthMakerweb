@@ -1,19 +1,24 @@
+
 const categories = [
     {
         id: "all",
         name: "All Categories",
         slug: "all",
     },
+
+    {
+        id: " weightloss",
+        name: "Weight Loss",
+        slug: "weightloss"
+    },
+
+
     {
         id: "beauty",
         name: "Beauty",
         slug: "beauty",
     },
-    {
-        id: "bizzop",
-        name: "Bizzop",
-        slug: "bizzop",
-    },
+
     {
         id: "body-health",
         name: "Body Health",
@@ -34,21 +39,13 @@ const categories = [
         name: "Digital Products",
         slug: "digital-products",
     },
-    {
-        id: "erectile-dysfunction",
-        name: "Erectile Dysfunction",
-        slug: "erectile-dysfunction",
-    },
+
     {
         id: "fungus",
         name: "Fungus",
         slug: "fungus",
     },
-    {
-        id: "gadgets",
-        name: "Gadgets",
-        slug: "gadgets",
-    },
+
     {
         id: "gut-health",
         name: "Gut Health",
@@ -59,11 +56,7 @@ const categories = [
         name: "Hearing",
         slug: "hearing",
     },
-    {
-        id: "international",
-        name: "International",
-        slug: "international",
-    },
+
     {
         id: "joint-pain",
         name: "Joint Pain",

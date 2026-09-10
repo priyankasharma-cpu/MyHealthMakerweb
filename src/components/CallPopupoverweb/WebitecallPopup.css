@@ -1,0 +1,734 @@
+/* =========================================================
+   WEBITECALL POPUP OVERLAY
+========================================================= */
+
+.WebitecallPopup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    padding: 30px;
+
+    background: rgba(2, 20, 14, 0.12);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    animation: WebitecallPopupOverlayIn 0.35s ease both;
+}
+
+
+/* =========================================================
+   WEBITECALL POPUP CARD
+========================================================= */
+
+.WebitecallPopup {
+    position: relative;
+
+    width: min(410px, calc(100vw - 30px));
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 28px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 35px 90px rgba(2, 44, 34, 0.22),
+        0 12px 35px rgba(2, 44, 34, 0.12);
+
+    animation:
+        WebitecallPopupIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.WebitecallPopup-close {
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    z-index: 10;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.12);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.WebitecallPopup-close:hover {
+    transform: rotate(90deg);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   GREEN TOP AREA
+========================================================= */
+
+.WebitecallPopup__top {
+    position: relative;
+
+    min-height: 185px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 45%,
+            rgba(52, 211, 153, 0.35),
+            transparent 32%),
+        linear-gradient(135deg,
+            #065f46 0%,
+            #047857 45%,
+            #059669 100%);
+}
+
+
+/* =========================================================
+   DECORATIVE CIRCLES
+========================================================= */
+
+.WebitecallPopup__top::before,
+.WebitecallPopup__top::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    pointer-events: none;
+}
+
+.WebitecallPopup__top::before {
+    width: 260px;
+    height: 260px;
+}
+
+.WebitecallPopup__top::after {
+    width: 190px;
+    height: 190px;
+}
+
+
+/* =========================================================
+   PHONE RING
+========================================================= */
+
+.WebitecallPopup__ring {
+    position: relative;
+
+    width: 105px;
+    height: 105px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   PHONE PULSE
+========================================================= */
+
+.WebitecallPopup__ring-pulse {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255, 255, 255, 0.65);
+
+    animation:
+        WebitecallPopupPhonePulse 1.7s ease-out infinite;
+}
+
+
+/* Second pulse */
+
+.WebitecallPopup__ring::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    animation:
+        WebitecallPopupPhonePulse 1.7s ease-out 0.45s infinite;
+}
+
+
+/* =========================================================
+   PHONE ICON
+========================================================= */
+
+.WebitecallPopup__phone {
+    position: relative;
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #047857;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.2);
+
+    animation:
+        WebitecallPopupPhoneRing 1.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   AVAILABLE BADGE
+========================================================= */
+
+.WebitecallPopup__available {
+    position: absolute;
+
+    bottom: 16px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+
+    background: rgba(0, 0, 0, 0.14);
+
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    backdrop-filter: blur(8px);
+
+    z-index: 3;
+}
+
+.WebitecallPopup__available span {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #86efac;
+
+    box-shadow:
+        0 0 0 4px rgba(134, 239, 172, 0.12);
+
+    animation:
+        WebitecallPopupAvailableBlink 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.WebitecallPopup__content {
+    padding: 27px 28px 25px;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.WebitecallPopup__eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 9px;
+
+    color: #059669;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.WebitecallPopup__content h2 {
+    margin: 0;
+
+    color: #10251f;
+
+    font-size: 27px;
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+.WebitecallPopup__content h2 strong {
+    color: #047857;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.WebitecallPopup__content>p {
+    margin: 13px 0 0;
+
+    color: #64746f;
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.WebitecallPopup__features {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+
+.WebitecallPopup__feature {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 9px 5px;
+
+    border: 1px solid #e6f0ec;
+    border-radius: 10px;
+
+    background: #f7fbf9;
+
+    color: #3f5750;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.WebitecallPopup__feature svg {
+    flex-shrink: 0;
+
+    color: #059669;
+}
+
+
+/* =========================================================
+   CALL BUTTON
+========================================================= */
+
+.WebitecallPopup__button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 19px;
+
+    padding: 13px 14px;
+
+    border: 0;
+    border-radius: 15px;
+
+    background:
+        linear-gradient(135deg,
+            #059669 0%,
+            #047857 50%,
+            #065f46 100%);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 25px rgba(5, 150, 105, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.WebitecallPopup__button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 17px 32px rgba(5, 150, 105, 0.32);
+}
+
+
+.WebitecallPopup__button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   BUTTON ICON
+========================================================= */
+
+.WebitecallPopup__button-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.16);
+}
+
+
+/* =========================================================
+   BUTTON TEXT
+========================================================= */
+
+.WebitecallPopup__button-text {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 2px;
+
+    flex: 1;
+}
+
+.WebitecallPopup__button-text small {
+    font-size: 9px;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.WebitecallPopup__button-text strong {
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   BUTTON ARROW
+========================================================= */
+
+.WebitecallPopup__button-arrow {
+    font-size: 22px;
+    font-weight: 300;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.WebitecallPopup__button:hover .WebitecallPopup__button-arrow {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   PHONE NUMBER
+========================================================= */
+
+.WebitecallPopup__number {
+    margin-top: 11px;
+
+    color: #263d35;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.WebitecallPopup__note {
+    margin-top: 5px !important;
+
+    color: #8a9893 !important;
+
+    font-size: 9px !important;
+
+    line-height: 1.4 !important;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes WebitecallPopupOverlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes WebitecallPopupIn {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0) scale(1);
+    }
+}
+
+
+@keyframes WebitecallPopupPhonePulse {
+    0% {
+        transform: scale(0.65);
+        opacity: 0.8;
+    }
+
+    75% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+
+@keyframes WebitecallPopupPhoneRing {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(-13deg);
+    }
+
+    20% {
+        transform: rotate(13deg);
+    }
+
+    30% {
+        transform: rotate(-10deg);
+    }
+
+    40% {
+        transform: rotate(8deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+}
+
+
+@keyframes WebitecallPopupAvailableBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .WebitecallPopup-overlay {
+        padding: 18px;
+    }
+
+    .WebitecallPopup {
+        width: min(390px, 100%);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .WebitecallPopup-overlay {
+        align-items: flex-end;
+
+        padding: 12px;
+    }
+
+    .WebitecallPopup {
+        width: 100%;
+
+        border-radius: 23px;
+    }
+
+    .WebitecallPopup__top {
+        min-height: 155px;
+    }
+
+    .WebitecallPopup__ring {
+        width: 88px;
+        height: 88px;
+    }
+
+    .WebitecallPopup__phone {
+        width: 62px;
+        height: 62px;
+    }
+
+    .WebitecallPopup__phone svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .WebitecallPopup__content {
+        padding: 22px 20px 20px;
+    }
+
+    .WebitecallPopup__content h2 {
+        font-size: 23px;
+    }
+
+    .WebitecallPopup__content>p {
+        font-size: 11px;
+    }
+
+    .WebitecallPopup__features {
+        gap: 5px;
+    }
+
+    .WebitecallPopup__feature {
+        padding: 8px 3px;
+
+        font-size: 7px;
+    }
+
+    .WebitecallPopup__button {
+        padding: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .WebitecallPopup__features {
+        grid-template-columns: 1fr;
+    }
+
+    .WebitecallPopup__feature {
+        justify-content: flex-start;
+
+        padding: 8px 10px;
+
+        font-size: 9px;
+    }
+
+    .WebitecallPopup__top {
+        min-height: 145px;
+    }
+
+}

@@ -1,0 +1,577 @@
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final-cta {
+    position: relative;
+
+    padding: 90px 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 12% 20%,
+            rgba(16, 185, 129, 0.16),
+            transparent 30%),
+        radial-gradient(circle at 90% 80%,
+            rgba(52, 211, 153, 0.12),
+            transparent 32%),
+        linear-gradient(135deg,
+            #073c32 0%,
+            #064e3b 48%,
+            #075f49 100%);
+}
+
+
+/* =========================================================
+   BACKGROUND EFFECTS
+========================================================= */
+
+.final-cta::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.08;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.5) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0.5) 1px,
+            transparent 1px);
+
+    background-size: 48px 48px;
+
+    pointer-events: none;
+}
+
+.final-cta__glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+.final-cta__glow--one {
+    width: 420px;
+    height: 420px;
+
+    top: -260px;
+    right: 8%;
+
+    background: rgba(52, 211, 153, 0.12);
+}
+
+.final-cta__glow--two {
+    width: 350px;
+    height: 350px;
+
+    bottom: -250px;
+    left: 5%;
+
+    background: rgba(16, 185, 129, 0.13);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.final-cta__container {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, calc(100% - 40px));
+
+    margin: 0 auto;
+}
+
+.final-cta__inner {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr) minmax(300px, 0.7fr);
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.final-cta__content {
+    min-width: 0;
+}
+
+.final-cta__eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    border: 1px solid rgba(167, 243, 208, 0.2);
+    border-radius: 100px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    color: #a7f3d0;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+
+    backdrop-filter: blur(12px);
+}
+
+.final-cta__title {
+    max-width: 750px;
+
+    margin: 20px 0 0;
+
+    color: #ffffff;
+
+    font-size: clamp(42px, 5vw, 67px);
+    line-height: 1.02;
+
+    font-weight: 900;
+
+    letter-spacing: -2.8px;
+}
+
+.final-cta__title span {
+    color: #8ce5bf;
+}
+
+.final-cta__description {
+    max-width: 690px;
+
+    margin: 22px 0 0;
+
+    color: rgba(236, 253, 245, 0.78);
+
+    font-size: 17px;
+    line-height: 1.75;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.final-cta__actions {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.final-cta__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 58px;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.final-cta__button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* CALL BUTTON */
+
+.final-cta__button--call {
+    gap: 12px;
+
+    padding: 9px 22px 9px 10px;
+
+    color: #064e3b;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 32px rgba(0, 0, 0, 0.16);
+}
+
+.final-cta__phone-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    border-radius: 11px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(135deg,
+            #059669,
+            #047857);
+}
+
+.final-cta__button--call>span:last-child {
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+.final-cta__button--call small {
+    color: #73847c;
+
+    font-size: 10px;
+    line-height: 1.2;
+
+    font-weight: 700;
+}
+
+.final-cta__button--call strong {
+    margin-top: 2px;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    font-weight: 900;
+}
+
+
+/* EXPLORE */
+
+.final-cta__button--explore {
+    gap: 9px;
+
+    padding: 0 23px;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    backdrop-filter: blur(10px);
+}
+
+.final-cta__button--explore:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.final-cta__trust {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px 20px;
+
+    margin-top: 25px;
+}
+
+.final-cta__trust span {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: rgba(236, 253, 245, 0.72);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.final-cta__trust svg {
+    color: #6ee7b7;
+}
+
+
+/* =========================================================
+   CALL CARD
+========================================================= */
+
+.final-cta__call-card {
+    position: relative;
+
+    padding: 34px 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.13),
+            rgba(255, 255, 255, 0.06));
+
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.16);
+
+    backdrop-filter: blur(18px);
+
+    text-align: center;
+}
+
+.final-cta__call-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 19px;
+
+    border-radius: 20px;
+
+    color: #065f46;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.16);
+}
+
+.final-cta__call-label {
+    color: #86efac;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.4px;
+}
+
+.final-cta__call-card h3 {
+    margin: 9px 0 0;
+
+    color: #ffffff;
+
+    font-size: 25px;
+    line-height: 1.2;
+
+    font-weight: 900;
+
+    letter-spacing: -0.6px;
+}
+
+.final-cta__call-card p {
+    margin: 12px auto 20px;
+
+    color: rgba(236, 253, 245, 0.72);
+
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.final-cta__call-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    padding: 15px 12px;
+
+    border-radius: 12px;
+
+    color: #064e3b;
+
+    background: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.final-cta__call-number:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.final-cta__call-note {
+    display: block;
+
+    margin-top: 11px;
+
+    color: rgba(236, 253, 245, 0.64);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .final-cta {
+        padding: 70px 0;
+    }
+
+    .final-cta__inner {
+        grid-template-columns: 1fr;
+
+        gap: 38px;
+    }
+
+    .final-cta__content {
+        text-align: center;
+    }
+
+    .final-cta__eyebrow {
+        margin: 0 auto;
+    }
+
+    .final-cta__title,
+    .final-cta__description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .final-cta__actions,
+    .final-cta__trust {
+        justify-content: center;
+    }
+
+    .final-cta__call-card {
+        width: 100%;
+        max-width: 500px;
+
+        margin: 0 auto;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .final-cta {
+        padding: 58px 0;
+    }
+
+    .final-cta__container {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .final-cta__inner {
+        gap: 30px;
+    }
+
+    .final-cta__eyebrow {
+        padding: 7px 11px;
+
+        font-size: 10px;
+    }
+
+    .final-cta__title {
+        margin-top: 17px;
+
+        font-size: clamp(36px, 10vw, 47px);
+        line-height: 1.04;
+
+        letter-spacing: -2px;
+    }
+
+    .final-cta__description {
+        margin-top: 17px;
+
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .final-cta__actions {
+        flex-direction: column;
+
+        margin-top: 24px;
+    }
+
+    .final-cta__button {
+        width: 100%;
+        min-height: 60px;
+    }
+
+    .final-cta__button--call {
+        justify-content: flex-start;
+    }
+
+    .final-cta__button--explore {
+        font-size: 15px;
+    }
+
+    .final-cta__trust {
+        flex-direction: column;
+        align-items: center;
+
+        gap: 9px;
+
+        margin-top: 20px;
+    }
+
+    .final-cta__trust span {
+        font-size: 12px;
+    }
+
+    .final-cta__call-card {
+        padding: 28px 20px;
+
+        border-radius: 20px;
+    }
+
+    .final-cta__call-card h3 {
+        font-size: 23px;
+    }
+
+    .final-cta__call-card p {
+        font-size: 14px;
+    }
+
+    .final-cta__call-number {
+        font-size: 16px;
+    }
+}

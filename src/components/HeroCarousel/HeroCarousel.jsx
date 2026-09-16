@@ -1,5 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./hero-carousel.css";
+
+/* =========================================================
+   HERO BANNERS
+========================================================= */
 
 const heroBanners = [
     {
@@ -9,7 +13,6 @@ const heroBanners = [
         link: "https://example.com/glp1",
     },
 
-    // Future banners yahan add karna
     {
         id: 2,
         image: "/hero-banners/herobnner7.png",
@@ -17,32 +20,16 @@ const heroBanners = [
         link: "https://example.com/weight-loss",
     },
 
-
     {
         id: 3,
-        image: "/hero-banners/herobanner2.png",
+        image: "/hero-banners/herobannernew.webp",
         product: "Beauty",
         link: "https://example.com/weight-loss",
     },
-
 
     {
         id: 4,
-        image: "/hero-banners/herobanner3.png",
-        product: "Beauty",
-        link: "https://example.com/weight-loss",
-    },
-
-    {
-        id: 5,
-        image: "/hero-banners/herobanner4.png",
-        product: "Brain Health",
-        link: "https://example.com/weight-loss",
-    },
-
-    {
-        id: 6,
-        image: "/hero-banners/herobanner5.png",
+        image: "/hero-banners/newherobanner.webp",
         product: "Beauty",
         link: "https://example.com/weight-loss",
     },
@@ -60,78 +47,259 @@ const heroBanners = [
         product: "Male Enhancement",
         link: "https://example.com/weight-loss",
     },
-
-
-
 ];
 
-const HeroCarousel = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [isPaused, setIsPaused] = useState(false);
 
+/* =========================================================
+   HERO CAROUSEL
+========================================================= */
+
+const HeroCarousel = () => {
     const totalSlides = heroBanners.length;
 
+    /*
+        Infinite carousel structure:
+
+        [LAST CLONE]
+        [SLIDE 1]
+        [SLIDE 2]
+        [SLIDE 3]
+        ...
+        [LAST SLIDE]
+        [FIRST CLONE]
+    */
+
+    const infiniteSlides =
+        totalSlides > 1
+            ? [
+                heroBanners[totalSlides - 1],
+                ...heroBanners,
+                heroBanners[0],
+            ]
+            : heroBanners;
+
+
+    /* =====================================================
+       STATES
+    ===================================================== */
+
+    // Start from first REAL slide
+    // because index 0 is cloned last slide
+    const [currentSlide, setCurrentSlide] = useState(
+        totalSlides > 1 ? 1 : 0
+    );
+
+    const [enableTransition, setEnableTransition] =
+        useState(true);
+
+    const resetTimeoutRef = useRef(null);
+
+
+    /* =====================================================
+       NEXT SLIDE
+    ===================================================== */
+
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % totalSlides);
+        if (totalSlides <= 1) return;
+
+        setEnableTransition(true);
+
+        setCurrentSlide((prev) => prev + 1);
     };
+
+
+    /* =====================================================
+       PREVIOUS SLIDE
+    ===================================================== */
 
     const prevSlide = () => {
-        setCurrentSlide(
-            (prev) => (prev - 1 + totalSlides) % totalSlides
-        );
+        if (totalSlides <= 1) return;
+
+        setEnableTransition(true);
+
+        setCurrentSlide((prev) => prev - 1);
     };
+
+
+    /* =====================================================
+       DOT NAVIGATION
+    ===================================================== */
 
     const goToSlide = (index) => {
-        setCurrentSlide(index);
+        if (totalSlides <= 1) return;
+
+        setEnableTransition(true);
+
+        /*
+            +1 because first position
+            is cloned last slide
+        */
+
+        setCurrentSlide(index + 1);
     };
 
+
+    /* =====================================================
+       AUTO PLAY
+       Automatically move every 3 seconds
+       Does NOT pause on hover
+    ===================================================== */
+
     useEffect(() => {
-        if (isPaused || totalSlides <= 1) {
+        if (totalSlides <= 1) return;
+
+        const autoPlayInterval = setInterval(() => {
+            setEnableTransition(true);
+
+            setCurrentSlide((prev) => prev + 1);
+        }, 3000);
+
+        return () => {
+            clearInterval(autoPlayInterval);
+        };
+    }, [totalSlides]);
+
+
+    /* =====================================================
+       TRUE INFINITE LOOP
+    ===================================================== */
+
+    const handleTransitionEnd = () => {
+        if (totalSlides <= 1) return;
+
+        /*
+            Reached cloned FIRST slide.
+
+            Example:
+
+            Last real slide
+                ↓
+            First clone
+                ↓
+            Instantly jump to first REAL slide
+        */
+
+        if (currentSlide === totalSlides + 1) {
+            setEnableTransition(false);
+
+            setCurrentSlide(1);
+
+            if (resetTimeoutRef.current) {
+                clearTimeout(resetTimeoutRef.current);
+            }
+
+            resetTimeoutRef.current = setTimeout(() => {
+                setEnableTransition(true);
+            }, 50);
+
             return;
         }
 
-        const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % totalSlides);
-        }, 5000);
 
-        return () => clearInterval(interval);
-    }, [isPaused, totalSlides]);
+        /*
+            Reached cloned LAST slide
+            while pressing previous arrow.
+        */
+
+        if (currentSlide === 0) {
+            setEnableTransition(false);
+
+            setCurrentSlide(totalSlides);
+
+            if (resetTimeoutRef.current) {
+                clearTimeout(resetTimeoutRef.current);
+            }
+
+            resetTimeoutRef.current = setTimeout(() => {
+                setEnableTransition(true);
+            }, 50);
+        }
+    };
+
+
+    /* =====================================================
+       CLEANUP TIMEOUT
+    ===================================================== */
+
+    useEffect(() => {
+        return () => {
+            if (resetTimeoutRef.current) {
+                clearTimeout(resetTimeoutRef.current);
+            }
+        };
+    }, []);
+
+
+    /* =====================================================
+       ACTIVE DOT
+    ===================================================== */
+
+    let activeDot = currentSlide - 1;
+
+    // Last clone
+    if (currentSlide === 0) {
+        activeDot = totalSlides - 1;
+    }
+
+    // First clone
+    if (currentSlide === totalSlides + 1) {
+        activeDot = 0;
+    }
+
+
+    /* =====================================================
+       NO BANNERS
+    ===================================================== */
 
     if (!heroBanners.length) {
         return null;
     }
 
+
+    /* =====================================================
+       COMPONENT
+    ===================================================== */
+
     return (
-        <section className="hero-carousel">
-            <div
-                className="hero-carousel__container"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-            >
-                {/* ==============================
-                    SLIDES
-                ============================== */}
+        <section
+            className="hero-carousel"
+            aria-label="Featured health products"
+        >
+            <div className="hero-carousel__container">
+
+                {/* =========================================
+                    SLIDE TRACK
+                ========================================= */}
 
                 <div
-                    className="hero-carousel__track"
+                    className={`hero-carousel__track ${!enableTransition
+                            ? "hero-carousel__track--no-transition"
+                            : ""
+                        }`}
                     style={{
-                        transform: `translateX(-${currentSlide * 100}%)`,
+                        transform: `translateX(-${currentSlide * 100
+                            }%)`,
                     }}
+                    onTransitionEnd={handleTransitionEnd}
                 >
-                    {heroBanners.map((banner) => (
+
+                    {infiniteSlides.map((banner, index) => (
                         <div
                             className="hero-carousel__slide"
-                            key={banner.id}
+                            key={`${banner.id}-${index}`}
                         >
+
+                            {/* IMAGE */}
+
                             <img
                                 src={banner.image}
                                 alt={banner.product}
                                 className="hero-carousel__image"
+                                draggable="false"
                             />
 
-                            {/* ==============================
-                                EXPLORE MORE
-                            ============================== */}
+
+                            {/* EXPLORE BUTTON */}
 
                             <a
                                 href={banner.link}
@@ -146,6 +314,7 @@ const HeroCarousel = () => {
                                     height="17"
                                     viewBox="0 0 24 24"
                                     fill="none"
+                                    aria-hidden="true"
                                 >
                                     <path
                                         d="M5 12H19"
@@ -163,18 +332,23 @@ const HeroCarousel = () => {
                                     />
                                 </svg>
                             </a>
+
                         </div>
                     ))}
                 </div>
 
-                {/* ==============================
+
+                {/* =========================================
                     LEFT ARROW
-                ============================== */}
+                ========================================= */}
 
                 {totalSlides > 1 && (
                     <button
                         type="button"
-                        className="hero-carousel__arrow hero-carousel__arrow--left"
+                        className="
+                            hero-carousel__arrow
+                            hero-carousel__arrow--left
+                        "
                         onClick={prevSlide}
                         aria-label="Previous banner"
                     >
@@ -183,6 +357,7 @@ const HeroCarousel = () => {
                             height="22"
                             viewBox="0 0 24 24"
                             fill="none"
+                            aria-hidden="true"
                         >
                             <path
                                 d="M15 18L9 12L15 6"
@@ -195,14 +370,18 @@ const HeroCarousel = () => {
                     </button>
                 )}
 
-                {/* ==============================
+
+                {/* =========================================
                     RIGHT ARROW
-                ============================== */}
+                ========================================= */}
 
                 {totalSlides > 1 && (
                     <button
                         type="button"
-                        className="hero-carousel__arrow hero-carousel__arrow--right"
+                        className="
+                            hero-carousel__arrow
+                            hero-carousel__arrow--right
+                        "
                         onClick={nextSlide}
                         aria-label="Next banner"
                     >
@@ -211,6 +390,7 @@ const HeroCarousel = () => {
                             height="22"
                             viewBox="0 0 24 24"
                             fill="none"
+                            aria-hidden="true"
                         >
                             <path
                                 d="M9 18L15 12L9 6"
@@ -223,26 +403,36 @@ const HeroCarousel = () => {
                     </button>
                 )}
 
-                {/* ==============================
-                    DOTS
-                ============================== */}
+
+                {/* =========================================
+                    DOT NAVIGATION
+                ========================================= */}
 
                 {totalSlides > 1 && (
-                    <div className="hero-carousel__dots">
-                        {heroBanners.map((banner, index) => (
-                            <button
-                                key={banner.id}
-                                type="button"
-                                className={`hero-carousel__dot ${currentSlide === index
-                                    ? "is-active"
-                                    : ""
-                                    }`}
-                                onClick={() => goToSlide(index)}
-                                aria-label={`Go to banner ${index + 1}`}
-                            />
-                        ))}
+                    <div
+                        className="hero-carousel__dots"
+                        aria-label="Carousel navigation"
+                    >
+                        {heroBanners.map(
+                            (banner, index) => (
+                                <button
+                                    key={banner.id}
+                                    type="button"
+                                    className={`hero-carousel__dot ${activeDot === index
+                                            ? "is-active"
+                                            : ""
+                                        }`}
+                                    onClick={() =>
+                                        goToSlide(index)
+                                    }
+                                    aria-label={`Go to ${banner.product
+                                        } banner`}
+                                />
+                            )
+                        )}
                     </div>
                 )}
+
             </div>
         </section>
     );

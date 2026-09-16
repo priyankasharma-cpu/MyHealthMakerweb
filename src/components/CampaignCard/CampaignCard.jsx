@@ -182,7 +182,7 @@ const CampaignCard = ({ campaign }) => {
                         }}
                     >
                         <span>
-                            Apply Now
+                            Buy Now
                         </span>
 
                         <span className="campaign-card__btn-arrow">
@@ -202,7 +202,7 @@ const CampaignCard = ({ campaign }) => {
                         className="campaign-card__call-btn"
                     >
                         <span>
-                            Call Now
+                            Talk to a Advisor
                         </span>
 
                         <span className="campaign-card__phone-icon">

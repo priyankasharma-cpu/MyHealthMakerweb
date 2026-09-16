@@ -8,11 +8,15 @@ import {
     Sparkles,
     SlidersHorizontal,
     X,
+    Phone,
+    BadgeCheck,
+    HeartPulse,
+    ShieldCheck,
 } from "lucide-react";
 
 import campaigns from "../../data/campaigns";
 import "./Offers.css";
-
+import FinalCTA from "../../components/Final CTA/FinalCTA"
 
 /* =========================================================
    CONSTANTS
@@ -22,15 +26,7 @@ const PRODUCTS_PER_PAGE = 10;
 
 const categories = [
     "All",
-    "Beauty",
     "Body Health",
-    "Brain Health",
-    "Diabetes",
-    "Gut Health",
-    "Heart Health",
-    "Joint Pain",
-    "Lung Health",
-    "Memory",
     "Men's Health",
     "Women's Health",
     "Weight Loss",
@@ -249,56 +245,93 @@ function Offers() {
                 TRUST STRIP
             ================================================= */}
 
-            <section className="offers-trust">
 
+            <section className="offers-trust">
                 <div className="offers-container">
 
                     <div className="offers-trust-grid">
 
+                        {/* ITEM 1 */}
                         <div className="offers-trust-item">
 
-                            <span className="offers-trust-number">
-                                {campaigns.length}+
-                            </span>
+                            <div className="offers-trust-icon">
+                                <BadgeCheck size={27} />
+                            </div>
 
-                            <span>
-                                Curated Offers
-                            </span>
+                            <div className="offers-trust-content">
+                                <div className="offers-trust-heading">
+                                    <strong className="offers-trust-number">
+                                        {campaigns.length}+
+                                    </strong>
+
+                                    <span className="offers-trust-title">
+                                        Curated Offers
+                                    </span>
+                                </div>
+
+                                <span className="offers-trust-description">
+                                    Carefully selected wellness options
+                                </span>
+                            </div>
 
                         </div>
 
 
+                        {/* ITEM 2 */}
                         <div className="offers-trust-item">
 
-                            <span className="offers-trust-number">
-                                12
-                            </span>
+                            <div className="offers-trust-icon">
+                                <HeartPulse size={27} />
+                            </div>
 
-                            <span>
-                                Wellness Categories
-                            </span>
+                            <div className="offers-trust-content">
+                                <div className="offers-trust-heading">
+                                    <strong className="offers-trust-number">
+                                        12
+                                    </strong>
+
+                                    <span className="offers-trust-title">
+                                        Wellness Categories
+                                    </span>
+                                </div>
+
+                                <span className="offers-trust-description">
+                                    Explore products across health needs
+                                </span>
+                            </div>
 
                         </div>
 
 
+                        {/* ITEM 3 */}
                         <div className="offers-trust-item">
 
-                            <span className="offers-trust-number">
-                                100%
-                            </span>
+                            <div className="offers-trust-icon">
+                                <ShieldCheck size={27} />
+                            </div>
 
-                            <span>
-                                Easy Product Discovery
-                            </span>
+                            <div className="offers-trust-content">
+                                <div className="offers-trust-heading">
+                                    <strong className="offers-trust-number">
+                                        100%
+                                    </strong>
+
+                                    <span className="offers-trust-title">
+                                        Easy Discovery
+                                    </span>
+                                </div>
+
+                                <span className="offers-trust-description">
+                                    Simple and convenient product browsing
+                                </span>
+                            </div>
 
                         </div>
 
                     </div>
 
                 </div>
-
             </section>
-
 
             {/* =================================================
                 OFFERS SECTION
@@ -439,28 +472,49 @@ function Offers() {
                                 >
 
 
-                                    {/* IMAGE */}
+                                    {/* =================================================
+                                               PRODUCT IMAGE + CALL OVERLAY
+                                    ================================================= */}
 
-                                    <Link
-                                        to={`/product/${product.slug}`}
-                                        className="offer-card__image"
-                                    >
+                                    <div className="offer-card__media">
 
-                                        <img
-                                            src={product.image}
-                                            alt={`${product.name} ${product.category}`}
-                                            loading="lazy"
-                                        />
+                                        <Link
+                                            to={`/product/${product.slug}`}
+                                            className="offer-card__image"
+                                            aria-label={`View ${product.name}`}
+                                        >
+                                            <img
+                                                src={product.image}
+                                                alt={`${product.name} ${product.category}`}
+                                                loading="lazy"
+                                            />
 
-                                        {product.badge && (
+                                            {product.badge && (
+                                                <span className="offer-card__badge">
+                                                    {product.badge}
+                                                </span>
+                                            )}
+                                        </Link>
 
-                                            <span className="offer-card__badge">
-                                                {product.badge}
+
+                                        {/* GLASSMORPHISM CALL BUTTON */}
+
+                                        <a
+                                            href="tel:+18666184718"
+                                            className="offer-card__call"
+                                            aria-label={`Call for ${product.name}`}
+                                            onClick={(event) => event.stopPropagation()}
+                                        >
+                                            <span className="offer-card__call-icon">
+                                                <Phone size={18} />
                                             </span>
 
-                                        )}
+                                            <span className="offer-card__call-text">
+                                                Call for Product Details
+                                            </span>
+                                        </a>
 
-                                    </Link>
+                                    </div>
 
 
                                     {/* CONTENT */}
@@ -531,7 +585,7 @@ function Offers() {
                                     setSearchQuery("");
                                 }}
                             >
-                                View All Offers
+                                Explore All Products
                             </button>
 
                         </div>
@@ -644,8 +698,7 @@ function Offers() {
                                     })
                             }
                         >
-                            Browse All Offers
-
+                            Explore Health & Wellness Offers
                             <ArrowRight size={17} />
                         </button>
 
@@ -654,6 +707,8 @@ function Offers() {
                 </div>
 
             </section>
+
+            <FinalCTA />
 
         </main>
     );

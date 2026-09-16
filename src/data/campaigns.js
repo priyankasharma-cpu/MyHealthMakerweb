@@ -1,47 +1,13 @@
 const campaigns = [
+
+
     {
         id: 1,
-        name: "AquaSculpt",
-        slug: "aquasculpt",
-        category: "Body Health",
-        categorySlug: "body-health",
-        image: "/images/products/product1.webp",
-        description:
-            'Discover the "Ice Water Hack" designed to support healthy weight management.',
-        conversionRate: "3.40%",
-        payout: "$130.00",
-        earningsPerClick: "$4.30",
-        allowedGeos: "USA mainly - Worldwide",
-        restrictions: "Link inside the offer",
-        badge: "Top Offer",
-        status: "active",
-    },
-
-    {
-        id: 2,
-        name: "NerveCalm",
-        slug: "nervecalm",
-        category: "Brain Health",
-        categorySlug: "brain-health",
-        image: "/images/products/product3.webp",
-        description:
-            "A targeted wellness formula designed to support everyday nerve health.",
-        conversionRate: "2.50%",
-        payout: "$150.00",
-        earningsPerClick: "$3.96",
-        allowedGeos: "US, CA, UK",
-        restrictions: "NO incentives, NO spam, NO SMS, NO Search Traffic",
-        badge: "Popular",
-        status: "active",
-    },
-
-    {
-        id: 3,
-        name: "GLPro",
-        slug: "glpro",
-        category: "Diabetes",
-        categorySlug: "diabetes",
-        image: "/images/products/product2.webp",
+        name: "GLP-1",
+        slug: "glp-1",
+        category: "Weight Loss",
+        categorySlug: "weightloss",
+        image: "/images/products/glp1-vial.webp",
         description:
             "A wellness-focused solution designed to support healthy glucose levels and weight management.",
         conversionRate: "2.45%",
@@ -54,12 +20,12 @@ const campaigns = [
     },
 
     {
-        id: 4,
-        name: "JointFlex",
-        slug: "jointflex",
-        category: "Joint Pain",
-        categorySlug: "joint-pain",
-        image: "/images/products/product4.webp",
+        id: 2,
+        name: "GLP-1 + GIP",
+        slug: "glp-1 + gip",
+        category: "Weight Loss",
+        categorySlug: "weightloss",
+        image: "/images/products/injectable-glp1-gip-2.png",
         description:
             "Daily support for comfortable movement and healthy joint function.",
         conversionRate: "3.10%",
@@ -72,7 +38,7 @@ const campaigns = [
     },
 
     {
-        id: 5,
+        id: 3,
         name: "SodaSlim",
         slug: "sodaslim",
         category: "Weight Loss",
@@ -89,66 +55,51 @@ const campaigns = [
     },
 
     {
-        id: 6,
-        name: "HearClear",
-        slug: "hearclear",
-        category: "Hearing",
-        categorySlug: "hearing",
-        image: "/images/products/Product6.webp",
-        description:
-            "A wellness product created to support everyday hearing health.",
-        conversionRate: "2.35%",
-        payout: "$140.00",
-        earningsPerClick: "$3.88",
-        allowedGeos: "USA - Worldwide",
-        restrictions: "No brand bidding",
-        badge: "New",
-        status: "active",
-    },
-
-    {
-        id: 7,
-        name: "Memory Plus",
-        slug: "memory-plus",
-        category: "Memory",
-        categorySlug: "memory",
-        image: "/images/products/Product7.webp",
-        description:
-            "Daily nutritional support designed for memory and cognitive wellness.",
-        conversionRate: "2.75%",
-        payout: "$135.00",
-        earningsPerClick: "$4.01",
-        allowedGeos: "US, CA, UK",
-        restrictions: "No misleading advertising",
-        badge: "Popular",
-        status: "active",
-    },
-
-    {
-        id: 8,
-        name: "PureFungus",
-        slug: "purefungus",
-        category: "Fungus",
-        categorySlug: "fungus",
-        image: "/images/products/product8.webp",
-        description:
-            "A wellness solution focused on supporting healthy skin and overall wellness.",
-        conversionRate: "2.20%",
-        payout: "$120.00",
-        earningsPerClick: "$3.61",
-        allowedGeos: "Worldwide",
-        restrictions: "No spam traffic",
-        badge: "Featured",
-        status: "active",
-    },
-
-    {
-        id: 9,
+        id: 4,
         name: "MaleVitality",
         slug: "male-vitality",
         category: "Male Enhancement",
         categorySlug: "male-enhancement",
-        image: "/images/products/injectable-glp1-gip-2.png",
+        image: "/images/products/Product7.webp",
+        description:
+            "A men's wellness formula designed to support daily vitality and confidence.",
+        conversionRate: "3.05%",
+        payout: "$145.00",
+        earningsPerClick: "$4.12",
+        allowedGeos: "USA - Worldwide",
+        restrictions: "No misleading claims",
+        badge: "Top Offer",
+        status: "active",
+    },
+
+    {
+        id: 5,
+        name: "ManForcex",
+        slug: "man-forcex",
+        category: "Male Enhancement",
+        categorySlug: "male-enhancement",
+        image: "/images/products/manforccex.webp",
+        description:
+            "A men's wellness formula designed to support daily vitality and confidence.",
+        conversionRate: "3.05%",
+        payout: "$145.00",
+        earningsPerClick: "$4.12",
+        allowedGeos: "USA - Worldwide",
+        restrictions: "No misleading claims",
+        badge: "Top Offer",
+        status: "active",
+    },
+
+
+
+
+    {
+        id: 6,
+        name: "HorseBoost",
+        slug: "horse-boost",
+        category: "Male Enhancement",
+        categorySlug: "male-enhancement",
+        image: "/public/images/products/horseboost.webp",
         description:
             "A men's wellness formula designed to support daily vitality and confidence.",
         conversionRate: "3.05%",
@@ -266,7 +217,101 @@ const campaigns = [
            restrictions: "No spam traffic",
            badge: "Popular",
            status: "active",
-       }, */
+       }, 
+       
+          {
+        id: 1,
+        name: "AquaSculpt",
+        slug: "aquasculpt",
+        category: "Body Health",
+        categorySlug: "body-health",
+        image: "/images/products/product1.webp",
+        description:
+            'Discover the "Ice Water Hack" designed to support healthy weight management.',
+        conversionRate: "3.40%",
+        payout: "$130.00",
+        earningsPerClick: "$4.30",
+        allowedGeos: "USA mainly - Worldwide",
+        restrictions: "Link inside the offer",
+        badge: "Top Offer",
+        status: "active",
+    },
+
+    {
+        id: 2,
+        name: "NerveCalm",
+        slug: "nervecalm",
+        category: "Brain Health",
+        categorySlug: "brain-health",
+        image: "/images/products/product3.webp",
+        description:
+            "A targeted wellness formula designed to support everyday nerve health.",
+        conversionRate: "2.50%",
+        payout: "$150.00",
+        earningsPerClick: "$3.96",
+        allowedGeos: "US, CA, UK",
+        restrictions: "NO incentives, NO spam, NO SMS, NO Search Traffic",
+        badge: "Popular",
+        status: "active",
+    },
+
+
+    
+    {
+        id: 4,
+        name: "HearClear",
+        slug: "hearclear",
+        category: "Hearing",
+        categorySlug: "hearing",
+        image: "/images/products/Product6.webp",
+        description:
+            "A wellness product created to support everyday hearing health.",
+        conversionRate: "2.35%",
+        payout: "$140.00",
+        earningsPerClick: "$3.88",
+        allowedGeos: "USA - Worldwide",
+        restrictions: "No brand bidding",
+        badge: "New",
+        status: "active",
+    },
+
+    {
+        id: 7,
+        name: "Memory Plus",
+        slug: "memory-plus",
+        category: "Memory",
+        categorySlug: "memory",
+        image: "/images/products/Product7.webp",
+        description:
+            "Daily nutritional support designed for memory and cognitive wellness.",
+        conversionRate: "2.75%",
+        payout: "$135.00",
+        earningsPerClick: "$4.01",
+        allowedGeos: "US, CA, UK",
+        restrictions: "No misleading advertising",
+        badge: "Popular",
+        status: "active",
+    },
+
+    {
+        id: 8,
+        name: "PureFungus",
+        slug: "purefungus",
+        category: "Fungus",
+        categorySlug: "fungus",
+        image: "/images/products/product8.webp",
+        description:
+            "A wellness solution focused on supporting healthy skin and overall wellness.",
+        conversionRate: "2.20%",
+        payout: "$120.00",
+        earningsPerClick: "$3.61",
+        allowedGeos: "Worldwide",
+        restrictions: "No spam traffic",
+        badge: "Featured",
+        status: "active",
+    },
+       
+       */
 ];
 
 export default campaigns;

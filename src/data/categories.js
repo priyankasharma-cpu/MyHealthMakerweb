@@ -12,19 +12,60 @@ const categories = [
         slug: "weightloss"
     },
 
-
-    {
-        id: "beauty",
-        name: "Beauty",
-        slug: "beauty",
-    },
-
     {
         id: "body-health",
         name: "Body Health",
         slug: "body-health",
     },
+
+
     {
+        id: "male-enhancement",
+        name: "Male Enhancement",
+        slug: "male-enhancement",
+    },
+
+
+    /*  
+    
+     {
+        id: "joint-pain",
+        name: "Joint Pain",
+        slug: "joint-pain",
+    },
+    {
+        id: "lung-health",
+        name: "Lung Health",
+        slug: "lung-health",
+    },
+    
+    {
+           id: "memory",
+           name: "Memory",
+           slug: "memory",
+          },
+       
+   
+         {
+           id: "hearing",
+           name: "Hearing",
+           slug: "hearing",
+       },
+
+       
+    {
+        id: "gut-health",
+        name: "Gut Health",
+        slug: "gut-health",
+    },
+
+       {
+        id: "fungus",
+        name: "Fungus",
+        slug: "fungus",
+    },
+
+        {
         id: "brain-health",
         name: "Brain Health",
         slug: "brain-health",
@@ -40,43 +81,14 @@ const categories = [
         slug: "digital-products",
     },
 
-    {
-        id: "fungus",
-        name: "Fungus",
-        slug: "fungus",
-    },
 
     {
-        id: "gut-health",
-        name: "Gut Health",
-        slug: "gut-health",
+        id: "beauty",
+        name: "Beauty",
+        slug: "beauty",
     },
-    {
-        id: "hearing",
-        name: "Hearing",
-        slug: "hearing",
-    },
-
-    {
-        id: "joint-pain",
-        name: "Joint Pain",
-        slug: "joint-pain",
-    },
-    {
-        id: "lung-health",
-        name: "Lung Health",
-        slug: "lung-health",
-    },
-    {
-        id: "male-enhancement",
-        name: "Male Enhancement",
-        slug: "male-enhancement",
-    },
-    {
-        id: "memory",
-        name: "Memory",
-        slug: "memory",
-    },
+       
+       */
 ];
 
 export default categories;

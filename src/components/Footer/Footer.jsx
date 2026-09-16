@@ -1,5 +1,11 @@
 import "./footer.css";
 
+import {
+    ArrowRight,
+    PhoneIncoming,
+} from "lucide-react";
+
+import "./footer.css";
 function Footer() {
     const categories = [
         "Beauty",
@@ -42,34 +48,47 @@ function Footer() {
                             everyday lifestyle.
                         </p>
 
-                        <a
-                            href="/"
-                            className="footer-primary-btn"
-                        >
-                            Explore Marketplace
+                        <div className="footer-actions">
 
-                            <svg
-                                width="15"
-                                height="15"
-                                viewBox="0 0 24 24"
-                                fill="none"
+                            {/* CALL CTA */}
+                            <a
+                                href="tel:+18666184718"
+                                className="footer-call-btn"
+                                aria-label="Speak with a specialist at +1 866 618 4718"
                             >
-                                <path
-                                    d="M5 12H19"
-                                    stroke="currentColor"
-                                    strokeWidth="1.8"
-                                    strokeLinecap="round"
-                                />
+                                <span className="footer-call-btn__icon">
 
-                                <path
-                                    d="M13 6L19 12L13 18"
-                                    stroke="currentColor"
-                                    strokeWidth="1.8"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        </a>
+                                    <span className="footer-call-btn__pulse" />
+
+                                    <PhoneIncoming size={22} />
+
+                                </span>
+
+                                <span className="footer-call-btn__content">
+                                    <small>Questions about a product?</small>
+
+                                    <strong>
+                                        Speak With a Specialist
+                                    </strong>
+
+                                    <span className="footer-call-btn__number">
+                                        +1 (866) 618-4718
+                                    </span>
+                                </span>
+                            </a>
+
+
+                            {/* MARKETPLACE CTA */}
+                            <a
+                                href="/offers"
+                                className="footer-marketplace-link"
+                            >
+                                Explore Marketplace
+
+                                <ArrowRight size={17} />
+                            </a>
+
+                        </div>
 
                     </div>
 
@@ -129,7 +148,7 @@ function Footer() {
                             About Us
                         </a>
 
-                        <a href="/#health-guides">
+                        <a href="/health-guides">
                             Health Guides
                         </a>
 
@@ -137,7 +156,7 @@ function Footer() {
                             Contact Us
                         </a>
 
-                        <a href="/#faq">
+                        <a href="/faq">
                             FAQ
                         </a>
 

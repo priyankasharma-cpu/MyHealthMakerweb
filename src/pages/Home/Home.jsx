@@ -5,6 +5,7 @@ import CategorySidebar from "../../components/CategorySidebar/CategorySidebar";
 import CampaignGrid from "../../components/CampaignGrid/CampaignGrid";
 import Pagination from "../../components/Pagination/Pagination";
 
+import FinalCTA from "../../components/Final CTA/FinalCTA"
 import campaigns from "../../data/campaigns";
 
 import "./home.css";
@@ -229,6 +230,8 @@ const Home = ({
                 </div>
 
             </section>
+
+            <FinalCTA />
 
         </main>
     );

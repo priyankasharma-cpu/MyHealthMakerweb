@@ -4,8 +4,11 @@
 
 .site-header {
     width: 100%;
-    position: relative;
-    z-index: 1000;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 9999;
 
     background: rgba(255, 255, 255, 0.96);
 
@@ -13,6 +16,8 @@
 
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
 }
 
 
@@ -23,14 +28,14 @@
 .header-container {
     width: min(1320px, calc(100% - 48px));
 
-    min-height: 78px;
+    min-height: 96px;
 
     margin: 0 auto;
 
     display: flex;
     align-items: center;
 
-    gap: 35px;
+    gap: 38px;
 }
 
 
@@ -38,11 +43,16 @@
    LOGO
 ========================================================= */
 
+/* ========================================================= 
+   LOGO - FIXED
+========================================================= */
+
 .brand-logo {
     flex: 0 0 auto;
 
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 
     text-decoration: none;
 }
@@ -50,10 +60,14 @@
 .brand-logo__image {
     display: block;
 
-    width: 205px;
-    height: 52px;
+    width: 280px;
+    height: 82px;
 
     object-fit: contain;
+    object-position: left center;
+
+    /* IMPORTANT */
+    transform: none;
 }
 
 
@@ -69,7 +83,7 @@
 
     justify-content: center;
 
-    gap: 30px;
+    gap: 34px;
 }
 
 
@@ -83,14 +97,14 @@
     border: 0;
     background: transparent;
 
-    padding: 8px 0;
+    padding: 12px 0;
 
-    color: #26332f;
+    color: #07966c;
 
     font-family: inherit;
 
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 700;
 
     text-decoration: none;
 
@@ -103,7 +117,7 @@
 }
 
 .nav-link:hover {
-    color: #07966c;
+    color: #05835d;
 }
 
 .nav-link.active {
@@ -138,15 +152,15 @@
 ========================================================= */
 
 .nav-search-form {
-    width: 190px;
-    height: 42px;
+    width: 220px;
+    height: 55px;
 
     display: flex;
     align-items: center;
 
-    gap: 9px;
+    gap: 8px;
 
-    padding: 0 13px;
+    padding: 0 14px;
 
     border: 1px solid #dce6e2;
 
@@ -189,7 +203,7 @@
 
     font-family: inherit;
 
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .nav-search-form input::placeholder {
@@ -222,9 +236,9 @@
     align-items: center;
     justify-content: center;
 
-    gap: 8px;
+    gap: 10px;
 
-    min-height: 42px;
+    min-height: 58px;
     padding: 0 14px;
 
     border: 1px solid #048a62;
@@ -235,7 +249,7 @@
 
     text-decoration: none;
 
-    font-size: 11.5px;
+    font-size: 15px;
     font-weight: 750;
 
     white-space: nowrap;
@@ -316,7 +330,7 @@
     top: 0;
     left: -80%;
 
-    width: 45%;
+    width: 55%;
     height: 100%;
 
     background: linear-gradient(105deg,
@@ -345,8 +359,8 @@
     position: relative;
     z-index: 2;
 
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
 
     display: flex;
     align-items: center;
@@ -384,7 +398,7 @@
 .header-phone__number {
     position: relative;
     z-index: 2;
-
+    font-size: 14px;
     letter-spacing: -0.15px;
 
     transition:
@@ -487,7 +501,7 @@
 ========================================================= */
 
 .header-cta {
-    min-height: 44px;
+    min-height: 58px;
 
     display: inline-flex;
     align-items: center;
@@ -507,7 +521,7 @@
 
     font-family: inherit;
 
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 750;
 
     white-space: nowrap;
@@ -528,6 +542,11 @@
 
     box-shadow:
         0 10px 24px rgba(7, 150, 108, 0.2);
+}
+
+.header-cta svg {
+    width: 18px;
+    height: 18px;
 }
 
 
@@ -604,15 +623,16 @@
 @media (max-width: 850px) {
 
     .header-container {
-        min-height: 70px;
+        min-height: 82px;
 
         width: calc(100% - 28px);
+        gap: 14px;
     }
 
 
     .brand-logo__image {
-        width: 175px;
-        height: 48px;
+        width: 195px;
+        height: 56px;
     }
 
 
@@ -626,13 +646,32 @@
     }
 
 
-    .header-phone {
-        padding: 10px;
-    }
+    /* Bigger phone button */
 
+    .header-phone {
+        width: 48px;
+        height: 48px;
+
+        min-height: 48px;
+
+        padding: 0;
+
+        border-radius: 50%;
+    }
 
     .header-phone__number {
         display: none;
+    }
+
+    .header-phone__icon {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .header-phone__icon svg {
+        width: 18px;
+        height: 18px;
     }
 
 
@@ -645,14 +684,22 @@
         display: flex;
     }
 
+    .mobile-menu-button {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 13px;
+
+        font-size: 22px;
+    }
 
     .mobile-navigation {
         display: flex;
         flex-direction: column;
 
-        gap: 5px;
+        gap: 7px;
 
-        padding: 14px;
+        padding: 16px;
 
         border-top: 1px solid #edf1ef;
 
@@ -667,9 +714,9 @@
         display: flex;
         align-items: center;
 
-        min-height: 45px;
+        min-height: 52px;
 
-        padding: 0 13px;
+        padding: 0 16px;
 
         border-radius: 10px;
 
@@ -681,7 +728,7 @@
 
         font-family: inherit;
 
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 650;
 
         text-decoration: none;
@@ -716,13 +763,13 @@
 
         margin: 8px 0;
 
-        padding: 5px 6px 5px 13px;
+        padding: 6px 7px 6px 15px;
 
-        min-height: 48px;
+        min-height: 54px;
 
         border: 1px solid #dce6e2;
 
-        border-radius: 12px;
+        border-radius: 14px;
 
         background: #f8fbfa;
     }
@@ -747,18 +794,18 @@
 
         font-family: inherit;
 
-        font-size: 13px;
+        font-size: 15px;
     }
 
 
     .mobile-search-form button {
-        min-height: 38px;
+        min-height: 42px;
 
-        padding: 0 14px;
+        padding: 0 16px;
 
         border: 0;
 
-        border-radius: 9px;
+        border-radius: 10px;
 
         background: #07966c;
 
@@ -766,7 +813,7 @@
 
         font-family: inherit;
 
-        font-size: 11px;
+        font-size: 14px;
         font-weight: 750;
 
         cursor: pointer;
@@ -783,7 +830,7 @@
 
         gap: 9px;
 
-        min-height: 45px;
+        min-height: 52px;
 
         padding: 0 13px;
 
@@ -795,7 +842,7 @@
 
         text-decoration: none;
 
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 700;
     }
 
@@ -805,7 +852,7 @@
     ===================================================== */
 
     .mobile-header-cta {
-        min-height: 48px;
+        min-height: 54px;
 
         display: flex;
         align-items: center;
@@ -823,7 +870,7 @@
 
         text-decoration: none;
 
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 750;
     }
 }
@@ -837,12 +884,13 @@
 
     .header-container {
         width: calc(100% - 20px);
+        min-height: 78px;
     }
 
 
     .brand-logo__image {
-        width: 155px;
-        height: 45px;
+        width: 175px;
+        height: 52px;
     }
 
 
@@ -850,8 +898,104 @@
         display: none;
     }
 
+    .mobile-menu-button {
+        width: 46px;
+        height: 46px;
+
+        font-size: 21px;
+    }
+
+    .mobile-nav-link {
+        min-height: 50px;
+
+        font-size: 15px;
+    }
+
+    .mobile-search-form input {
+        font-size: 14px;
+    }
 
     .mobile-search-form button {
-        padding: 0 11px;
+        min-height: 40px;
+
+        padding: 0 14px;
+
+        font-size: 12px;
+    }
+
+    .mobile-phone {
+        min-height: 50px;
+
+        font-size: 14px;
+    }
+
+    .mobile-header-cta {
+        min-height: 52px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   MEDIUM DESKTOP / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 1250px) {
+
+    .header-container {
+        width: calc(100% - 32px);
+
+        min-height: 90px;
+
+        gap: 24px;
+    }
+
+
+    .brand-logo__image {
+        width: 215px;
+        height: 60px;
+    }
+
+
+    .desktop-navigation {
+        gap: 22px;
+    }
+
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+
+    .nav-search-form {
+        width: 175px;
+        height: 46px;
+    }
+
+
+    .nav-search-form input {
+        font-size: 13px;
+    }
+
+
+    .header-phone {
+        min-height: 48px;
+
+        padding: 0 13px;
+    }
+
+
+    .header-phone__number {
+        display: none;
+    }
+
+
+    .header-cta {
+        min-height: 48px;
+
+        padding: 0 18px;
+
+        font-size: 13px;
     }
 }

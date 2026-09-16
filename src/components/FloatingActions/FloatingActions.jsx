@@ -2,13 +2,13 @@ import { Phone } from "lucide-react";
 import "./FloatingActions.css";
 
 const PHONE_NUMBER = "1234567890";
-const WHATSAPP_NUMBER = "1234567890";
+//const WHATSAPP_NUMBER = "1234567890";
 
 const FloatingActions = () => {
     return (
         <div className="floating-actions">
 
-            {/* ================= WHATSAPP ================= */}
+            {/* ================= WHATSAPP ================= 
             <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
@@ -18,7 +18,6 @@ const FloatingActions = () => {
             >
                 <span className="floating-action__icon">
 
-                    {/* WhatsApp Logo */}
                     <svg
                         viewBox="0 0 32 32"
                         width="25"
@@ -54,7 +53,7 @@ const FloatingActions = () => {
                 <span className="floating-action__label">
                     WhatsApp
                 </span>
-            </a>
+            </a> */}
 
 
             {/* ================= DIRECT CALL ================= */}
@@ -74,6 +73,8 @@ const FloatingActions = () => {
                     Call Us
                 </span>
             </a>
+
+
 
         </div>
     );

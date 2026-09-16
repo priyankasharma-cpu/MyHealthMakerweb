@@ -1,0 +1,1320 @@
+/* =========================================================
+   HEALTH GUIDES
+========================================================= */
+
+.health-guides-page {
+    --hg-green: #059669;
+    --hg-green-dark: #047857;
+    --hg-deep: #065f46;
+    --hg-text: #172a23;
+    --hg-soft: #65776f;
+    --hg-border: #e1ebe7;
+
+    background: #ffffff;
+    color: var(--hg-text);
+}
+
+.health-guides-container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.health-guides-hero {
+    position: relative;
+
+    padding: 105px 0 90px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 12% 18%,
+            rgba(16, 185, 129, 0.14),
+            transparent 28%),
+        radial-gradient(circle at 88% 75%,
+            rgba(110, 231, 183, 0.14),
+            transparent 28%),
+        linear-gradient(135deg,
+            #effbf6 0%,
+            #ffffff 52%,
+            #f2faf7 100%);
+
+    border-bottom: 1px solid #e6efeb;
+}
+
+.health-guides-hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.45;
+
+    background-image:
+        linear-gradient(rgba(5, 150, 105, 0.035) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(5, 150, 105, 0.035) 1px,
+            transparent 1px);
+
+    background-size: 50px 50px;
+}
+
+.health-guides-hero__orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+.health-guides-hero__orb--one {
+    width: 380px;
+    height: 380px;
+
+    top: -250px;
+    right: 7%;
+
+    background: rgba(16, 185, 129, 0.14);
+}
+
+.health-guides-hero__orb--two {
+    width: 320px;
+    height: 320px;
+
+    bottom: -230px;
+    left: 5%;
+
+    background: rgba(52, 211, 153, 0.12);
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.health-guides-hero__content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.health-guides-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border: 1px solid #cce8dc;
+    border-radius: 100px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    color: var(--hg-green-dark);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+
+    box-shadow:
+        0 8px 25px rgba(6, 95, 70, 0.05);
+}
+
+.health-guides-hero h1 {
+    max-width: 880px;
+
+    margin: 22px auto 0;
+
+    color: #162c23;
+
+    font-size: clamp(58px, 6.5vw, 84px);
+    line-height: 0.98;
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+}
+
+.health-guides-hero h1 span {
+    color: var(--hg-green);
+}
+
+.health-guides-hero__content>p {
+    max-width: 720px;
+
+    margin: 23px auto 0;
+
+    color: #62766d;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.health-guides-search {
+    display: flex;
+    align-items: center;
+
+    width: min(100%, 670px);
+    min-height: 65px;
+
+    margin: 32px auto 0;
+
+    padding: 0 18px;
+
+    border: 1px solid #d7e7e0;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: var(--hg-green);
+
+    box-shadow:
+        0 18px 45px rgba(22, 67, 50, 0.09);
+
+    transition: 0.25s ease;
+}
+
+.health-guides-search:focus-within {
+    border-color: #8bd5b9;
+
+    box-shadow:
+        0 20px 50px rgba(5, 150, 105, 0.12),
+        0 0 0 4px rgba(5, 150, 105, 0.06);
+}
+
+.health-guides-search input {
+    width: 100%;
+
+    padding: 0 14px;
+
+    border: 0;
+    outline: none;
+
+    background: transparent;
+
+    color: #172a23;
+
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.health-guides-search input::placeholder {
+    color: #98a9a2;
+}
+
+.health-guides-search button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #eff8f4;
+
+    color: #667a71;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO TRUST
+========================================================= */
+
+.health-guides-hero__trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px 24px;
+
+    margin-top: 24px;
+}
+
+.health-guides-hero__trust span {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #657a71;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.health-guides-hero__trust svg {
+    color: var(--hg-green);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.health-guides-content {
+    padding: 95px 0 105px;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.health-guides-header {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) minmax(300px, 430px);
+
+    align-items: end;
+
+    gap: 50px;
+
+    margin-bottom: 34px;
+}
+
+.health-guides-header__eyebrow {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--hg-green);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.health-guides-header h2 {
+    max-width: 670px;
+
+    margin: 0;
+
+    color: #172a23;
+
+    font-size: clamp(39px, 4vw, 56px);
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    letter-spacing: -2.6px;
+}
+
+.health-guides-header h2 span {
+    color: var(--hg-green);
+}
+
+.health-guides-header>p {
+    margin: 0 0 5px;
+
+    color: #687b72;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.health-guides-categories {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-bottom: 38px;
+}
+
+.health-guides-categories button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    min-height: 44px;
+
+    padding: 0 16px;
+
+    border: 1px solid #dce9e3;
+    border-radius: 100px;
+
+    background: #ffffff;
+
+    color: #5e7269;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.health-guides-categories button:hover {
+    border-color: #9dd8c1;
+
+    background: #f3fbf7;
+
+    color: var(--hg-green-dark);
+}
+
+.health-guides-categories button.active {
+    border-color: var(--hg-green);
+
+    background:
+        linear-gradient(135deg,
+            #059669,
+            #047857);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 9px 22px rgba(5, 150, 105, 0.18);
+}
+
+
+/* =========================================================
+   FEATURED GUIDE
+========================================================= */
+
+.health-featured {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 0.85fr) minmax(0, 1.15fr);
+
+    min-height: 370px;
+
+    margin-bottom: 35px;
+
+    overflow: hidden;
+
+    border: 1px solid #dceae4;
+    border-radius: 25px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 20px 50px rgba(22, 62, 47, 0.07);
+}
+
+
+/* VISUAL */
+
+.health-featured__visual {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 370px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 25% 25%,
+            rgba(110, 231, 183, 0.25),
+            transparent 32%),
+        linear-gradient(145deg,
+            #064e3b,
+            #047857);
+}
+
+.health-featured__pattern {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.1;
+
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.8) 1px,
+            transparent 1px);
+
+    background-size: 22px 22px;
+}
+
+.health-featured__visual-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+}
+
+.health-featured__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 26px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: #ffffff;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.13);
+}
+
+.health-featured__visual-content>span {
+    display: block;
+
+    color: #a7f3d0;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.8px;
+}
+
+.health-featured__visual-content strong {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #ffffff;
+
+    font-size: 25px;
+    font-weight: 900;
+}
+
+
+/* FEATURED CONTENT */
+
+.health-featured__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 45px;
+}
+
+.health-featured__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.health-featured__top>span {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--hg-green);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.2px;
+}
+
+.health-featured__top small {
+    color: #87978f;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.health-featured__content h2 {
+    max-width: 600px;
+
+    margin: 16px 0 0;
+
+    color: #172a23;
+
+    font-size: clamp(30px, 3vw, 43px);
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: -1.8px;
+}
+
+.health-featured__content p {
+    margin: 17px 0 0;
+
+    color: #64786f;
+
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.health-featured__link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    width: fit-content;
+
+    margin-top: 24px;
+
+    color: var(--hg-green-dark);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.health-featured__link svg {
+    transition: transform 0.25s ease;
+}
+
+.health-featured__link:hover svg {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   GUIDE GRID
+========================================================= */
+
+.health-guides-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   GUIDE CARD
+========================================================= */
+
+.health-guide-card {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid #e0ebe6;
+    border-radius: 21px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(22, 62, 47, 0.045);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.health-guide-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #bfe0d3;
+
+    box-shadow:
+        0 22px 45px rgba(22, 62, 47, 0.09);
+}
+
+
+/* CARD TOP */
+
+.health-guide-card__top {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    min-height: 150px;
+
+    padding: 24px;
+
+    background:
+        radial-gradient(circle at top right,
+            rgba(16, 185, 129, 0.13),
+            transparent 45%),
+        linear-gradient(145deg,
+            #f0faf6,
+            #fbfefc);
+
+    border-bottom: 1px solid #e5eee9;
+}
+
+.health-guide-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 54px;
+    height: 54px;
+
+    border: 1px solid #cbe8dc;
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    color: var(--hg-green);
+
+    box-shadow:
+        0 9px 25px rgba(5, 150, 105, 0.08);
+}
+
+.health-guide-card__category {
+    padding: 7px 10px;
+
+    border: 1px solid #d8eae2;
+    border-radius: 100px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    color: var(--hg-green-dark);
+
+    font-size: 9px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+
+/* CARD CONTENT */
+
+.health-guide-card__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    padding: 23px;
+}
+
+.health-guide-card__time {
+    color: #8b9b94;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+.health-guide-card h3 {
+    margin: 10px 0 0;
+
+    color: #20372e;
+
+    font-size: 21px;
+    line-height: 1.25;
+
+    font-weight: 900;
+
+    letter-spacing: -0.6px;
+}
+
+.health-guide-card p {
+    margin: 12px 0 0;
+
+    color: #6b7d75;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.health-guide-card__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: auto;
+    padding-top: 22px;
+
+    color: var(--hg-green-dark);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.health-guide-card__link span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #ecfdf5;
+
+    transition: 0.25s ease;
+}
+
+.health-guide-card:hover .health-guide-card__link span {
+    transform: translateX(3px);
+
+    background: var(--hg-green);
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.health-guides-empty {
+    margin-top: 25px;
+
+    padding: 60px 25px;
+
+    border: 1px solid #e1ebe7;
+    border-radius: 20px;
+
+    background: #fafdfb;
+
+    text-align: center;
+
+    color: #6b7e75;
+}
+
+.health-guides-empty svg {
+    color: var(--hg-green);
+}
+
+.health-guides-empty h3 {
+    margin: 15px 0 0;
+
+    color: #21372e;
+
+    font-size: 23px;
+}
+
+.health-guides-empty p {
+    margin: 8px 0 0;
+
+    font-size: 14px;
+}
+
+.health-guides-empty button {
+    margin-top: 20px;
+
+    padding: 12px 18px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: var(--hg-green);
+
+    color: #ffffff;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.health-guides-info {
+    padding: 70px 0;
+
+    background: #f5faf8;
+
+    border-top: 1px solid #e4eee9;
+    border-bottom: 1px solid #e4eee9;
+}
+
+.health-guides-info__inner {
+    display: grid;
+
+    grid-template-columns: 75px minmax(0, 1fr);
+
+    align-items: start;
+
+    gap: 24px;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+.health-guides-info__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    color: var(--hg-green);
+
+    box-shadow:
+        0 12px 30px rgba(22, 62, 47, 0.08);
+}
+
+.health-guides-info__inner span {
+    color: var(--hg-green);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.4px;
+}
+
+.health-guides-info__inner h2 {
+    margin: 8px 0 0;
+
+    color: #172a23;
+
+    font-size: 30px;
+    line-height: 1.2;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.health-guides-info__inner p {
+    margin: 12px 0 0;
+
+    color: #667a71;
+
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.health-guides-cta {
+    padding: 75px 0;
+
+    background: #ffffff;
+}
+
+.health-guides-cta__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding: 45px 50px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(circle at 90% 10%,
+            rgba(52, 211, 153, 0.2),
+            transparent 25%),
+        linear-gradient(135deg,
+            #064e3b,
+            #047857);
+
+    box-shadow:
+        0 22px 50px rgba(6, 78, 59, 0.15);
+}
+
+.health-guides-cta__inner>div>span {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #a7f3d0;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.4px;
+}
+
+.health-guides-cta h2 {
+    margin: 9px 0 0;
+
+    color: #ffffff;
+
+    font-size: clamp(29px, 3vw, 41px);
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: -1.5px;
+}
+
+.health-guides-cta p {
+    max-width: 650px;
+
+    margin: 11px 0 0;
+
+    color: rgba(236, 253, 245, 0.72);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.health-guides-cta__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 55px;
+
+    padding: 0 22px;
+
+    flex: 0 0 auto;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    color: #065f46;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.13);
+
+    transition: 0.25s ease;
+}
+
+.health-guides-cta__button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .health-guides-hero {
+        padding: 85px 0 75px;
+    }
+
+    .health-guides-content {
+        padding: 75px 0 85px;
+    }
+
+    .health-guides-header {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .health-featured {
+        grid-template-columns: 1fr;
+    }
+
+    .health-featured__visual {
+        min-height: 270px;
+    }
+
+    .health-guides-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .health-guides-cta__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .health-guides-container {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .health-guides-hero {
+        padding: 65px 0 58px;
+    }
+
+    .health-guides-hero__eyebrow {
+        font-size: 10px;
+    }
+
+    .health-guides-hero h1 {
+        margin-top: 17px;
+
+        font-size: clamp(40px, 11vw, 51px);
+        line-height: 1.02;
+
+        letter-spacing: -2.3px;
+    }
+
+    .health-guides-hero__content>p {
+        margin-top: 17px;
+
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .health-guides-search {
+        min-height: 58px;
+
+        margin-top: 25px;
+
+        padding: 0 14px;
+
+        border-radius: 15px;
+    }
+
+    .health-guides-search input {
+        font-size: 14px;
+    }
+
+    .health-guides-hero__trust {
+        gap: 9px 15px;
+    }
+
+    .health-guides-hero__trust span {
+        font-size: 11px;
+    }
+
+
+    /* CONTENT */
+
+    .health-guides-content {
+        padding: 60px 0 70px;
+    }
+
+    .health-guides-header {
+        margin-bottom: 25px;
+    }
+
+    .health-guides-header h2 {
+        font-size: 37px;
+
+        letter-spacing: -1.8px;
+    }
+
+    .health-guides-header>p {
+        font-size: 14px;
+    }
+
+
+    /* FILTER */
+
+    .health-guides-categories {
+        flex-wrap: nowrap;
+
+        margin-right: -14px;
+        padding-right: 14px;
+        padding-bottom: 5px;
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    .health-guides-categories::-webkit-scrollbar {
+        display: none;
+    }
+
+    .health-guides-categories button {
+        flex: 0 0 auto;
+
+        font-size: 12px;
+    }
+
+
+    /* FEATURED */
+
+    .health-featured {
+        border-radius: 19px;
+    }
+
+    .health-featured__visual {
+        min-height: 230px;
+    }
+
+    .health-featured__icon {
+        width: 72px;
+        height: 72px;
+
+        border-radius: 21px;
+    }
+
+    .health-featured__visual-content strong {
+        font-size: 22px;
+    }
+
+    .health-featured__content {
+        padding: 25px 20px;
+    }
+
+    .health-featured__content h2 {
+        font-size: 30px;
+    }
+
+    .health-featured__content p {
+        font-size: 14px;
+    }
+
+
+    /* GRID */
+
+    .health-guides-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .health-guide-card h3 {
+        font-size: 21px;
+    }
+
+    .health-guide-card p {
+        font-size: 14px;
+    }
+
+    .health-guide-card__link {
+        font-size: 14px;
+    }
+
+
+    /* INFORMATION */
+
+    .health-guides-info {
+        padding: 55px 0;
+    }
+
+    .health-guides-info__inner {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .health-guides-info__icon {
+        margin: 0 auto;
+    }
+
+    .health-guides-info__inner h2 {
+        font-size: 27px;
+    }
+
+    .health-guides-info__inner p {
+        font-size: 14px;
+    }
+
+
+    /* CTA */
+
+    .health-guides-cta {
+        padding: 55px 0;
+    }
+
+    .health-guides-cta__inner {
+        padding: 30px 21px;
+
+        border-radius: 20px;
+
+        text-align: center;
+    }
+
+    .health-guides-cta h2 {
+        font-size: 31px;
+    }
+
+    .health-guides-cta p {
+        font-size: 14px;
+    }
+
+    .health-guides-cta__button {
+        width: 100%;
+
+        min-height: 56px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .health-guides-hero h1 {
+        font-size: 37px;
+    }
+
+    .health-guides-hero__trust {
+        flex-direction: column;
+    }
+
+    .health-guides-header h2 {
+        font-size: 33px;
+    }
+}

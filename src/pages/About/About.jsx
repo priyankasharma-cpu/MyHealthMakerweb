@@ -1,6 +1,183 @@
+import { useEffect } from "react";
 import "./about.css";
+import FinalCTA from "../../components/Final CTA/FinalCTA"
 
 const About = () => {
+
+    useEffect(() => {
+        document.title =
+            "About MyHealthMaker | Health & Wellness Products & Offers";
+
+        const metaTags = [
+            {
+                name: "description",
+                content:
+                    "Learn about MyHealthMaker, a health and wellness marketplace helping people discover products, weight management solutions, fitness, nutrition, personal care, and valuable wellness offers.",
+            },
+            {
+                name: "keywords",
+                content:
+                    "health and wellness products, wellness marketplace, weight management products, fitness products, nutrition products, personal care products, health offers, wellness offers, MyHealthMaker",
+            },
+            {
+                name: "robots",
+                content: "index, follow",
+            },
+            {
+                name: "author",
+                content: "MyHealthMaker",
+            },
+        ];
+
+        metaTags.forEach(({ name, content }) => {
+            let tag = document.querySelector(`meta[name="${name}"]`);
+
+            if (!tag) {
+                tag = document.createElement("meta");
+                tag.setAttribute("name", name);
+                document.head.appendChild(tag);
+            }
+
+            tag.setAttribute("content", content);
+        });
+
+        // Canonical URL
+        let canonical = document.querySelector('link[rel="canonical"]');
+
+        if (!canonical) {
+            canonical = document.createElement("link");
+            canonical.setAttribute("rel", "canonical");
+            document.head.appendChild(canonical);
+        }
+
+        canonical.setAttribute(
+            "href",
+            "https://myhealthmaker.com/about"
+        );
+
+        // Open Graph
+        const ogTags = [
+            {
+                property: "og:title",
+                content:
+                    "About MyHealthMaker | Health & Wellness Products & Offers",
+            },
+            {
+                property: "og:description",
+                content:
+                    "Discover how MyHealthMaker helps people find health, wellness, fitness, nutrition, weight management, and personal care products and offers.",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:url",
+                content: "https://myhealthmaker.com/about",
+            },
+            {
+                property: "og:image",
+                content:
+                    "https://myhealthmaker.com/images/about/about-health-wellness.jpg",
+            },
+            {
+                property: "og:site_name",
+                content: "MyHealthMaker",
+            },
+        ];
+
+        ogTags.forEach(({ property, content }) => {
+            let tag = document.querySelector(
+                `meta[property="${property}"]`
+            );
+
+            if (!tag) {
+                tag = document.createElement("meta");
+                tag.setAttribute("property", property);
+                document.head.appendChild(tag);
+            }
+
+            tag.setAttribute("content", content);
+        });
+
+        // Twitter Card
+        const twitterTags = [
+            {
+                name: "twitter:card",
+                content: "summary_large_image",
+            },
+            {
+                name: "twitter:title",
+                content:
+                    "About MyHealthMaker | Health & Wellness Products & Offers",
+            },
+            {
+                name: "twitter:description",
+                content:
+                    "Explore health, wellness, fitness, nutrition, weight management, and personal care products and offers with MyHealthMaker.",
+            },
+            {
+                name: "twitter:image",
+                content:
+                    "https://myhealthmaker.com/images/about/about-health-wellness.jpg",
+            },
+        ];
+
+        twitterTags.forEach(({ name, content }) => {
+            let tag = document.querySelector(`meta[name="${name}"]`);
+
+            if (!tag) {
+                tag = document.createElement("meta");
+                tag.setAttribute("name", name);
+                document.head.appendChild(tag);
+            }
+
+            tag.setAttribute("content", content);
+        });
+
+        // Structured Data
+        const existingSchema = document.getElementById(
+            "myhealthmaker-about-schema"
+        );
+
+        if (!existingSchema) {
+            const script = document.createElement("script");
+
+            script.id = "myhealthmaker-about-schema";
+            script.type = "application/ld+json";
+
+            script.textContent = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "AboutPage",
+                name: "About MyHealthMaker",
+                url: "https://myhealthmaker.com/about",
+                description:
+                    "Learn about MyHealthMaker, a health and wellness marketplace helping people discover products, resources, and offers.",
+                isPartOf: {
+                    "@type": "WebSite",
+                    name: "MyHealthMaker",
+                    url: "https://myhealthmaker.com/",
+                },
+                about: {
+                    "@type": "Thing",
+                    name: "Health and Wellness Product Discovery",
+                },
+            });
+
+            document.head.appendChild(script);
+        }
+
+        return () => {
+            const schema = document.getElementById(
+                "myhealthmaker-about-schema"
+            );
+
+            if (schema) {
+                schema.remove();
+            }
+        };
+    }, []);
+
     return (
         <main className="about-page">
 
@@ -677,6 +854,8 @@ const About = () => {
                     </div>
                 </div>
             </section>
+
+            <FinalCTA />
 
             {/* ================= CTA SECTION ================= */}
             <section className="about-cta">

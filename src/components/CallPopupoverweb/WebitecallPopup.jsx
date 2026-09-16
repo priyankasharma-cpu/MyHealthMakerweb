@@ -5,7 +5,7 @@ import {
     X,
     ShieldCheck,
     Clock3,
-    Headphones
+    Headphones,
 } from "lucide-react";
 
 import "./WebitecallPopup.css";
@@ -16,39 +16,90 @@ function WebitecallPopup() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        // Show popup after 1 minute
+        let isPopupAlreadyTriggered = false;
+
+        /* ==========================================
+           SHOW AFTER 1 MINUTE
+        ========================================== */
+
         const timer = setTimeout(() => {
-            setIsOpen(true);
+            if (!isPopupAlreadyTriggered) {
+                isPopupAlreadyTriggered = true;
+                setIsOpen(true);
+            }
         }, 60000);
 
-        // Show popup when user is about to leave the website
+
+        /* ==========================================
+           EXIT INTENT
+           Only when mouse genuinely leaves viewport
+           from the top
+        ========================================== */
+
         const handleExitIntent = (event) => {
-            if (event.clientY <= 5) {
+            const isLeavingFromTop =
+                event.clientY <= 0 &&
+                event.relatedTarget === null;
+
+            if (
+                isLeavingFromTop &&
+                !isPopupAlreadyTriggered
+            ) {
+                isPopupAlreadyTriggered = true;
                 setIsOpen(true);
             }
         };
 
-        document.addEventListener("mouseout", handleExitIntent);
+        document.addEventListener(
+            "mouseout",
+            handleExitIntent
+        );
+
+
+        /* ==========================================
+           CLEANUP
+        ========================================== */
 
         return () => {
             clearTimeout(timer);
-            document.removeEventListener("mouseout", handleExitIntent);
+
+            document.removeEventListener(
+                "mouseout",
+                handleExitIntent
+            );
         };
     }, []);
 
-    if (!isOpen) return null;
+
+    /* ==========================================
+       CALL ACTION
+    ========================================== */
 
     const handleCall = () => {
-        window.location.href = `tel:${PHONE_NUMBER.replace(/\s/g, "")}`;
+        window.location.href = `tel:${PHONE_NUMBER.replace(
+            /\s/g,
+            ""
+        )}`;
     };
+
+
+    /* ==========================================
+       POPUP CLOSED
+    ========================================== */
+
+    if (!isOpen) {
+        return null;
+    }
+
 
     return (
         <div className="WebitecallPopup-overlay">
 
             <div className="WebitecallPopup">
 
-                {/* Close Button */}
+                {/* CLOSE BUTTON */}
                 <button
+                    type="button"
                     className="WebitecallPopup-close"
                     onClick={() => setIsOpen(false)}
                     aria-label="Close call popup"
@@ -56,7 +107,11 @@ function WebitecallPopup() {
                     <X size={18} />
                 </button>
 
-                {/* Top Green Area */}
+
+                {/* =====================================
+                    TOP GREEN AREA
+                ===================================== */}
+
                 <div className="WebitecallPopup__top">
 
                     <div className="WebitecallPopup__ring">
@@ -72,6 +127,9 @@ function WebitecallPopup() {
 
                     </div>
 
+
+                    {/* AVAILABLE BADGE */}
+
                     <div className="WebitecallPopup__available">
                         <span />
                         Available to help
@@ -79,79 +137,122 @@ function WebitecallPopup() {
 
                 </div>
 
-                {/* Content */}
+
+                {/* =====================================
+                    CONTENT
+                ===================================== */}
+
                 <div className="WebitecallPopup__content">
 
                     <span className="WebitecallPopup__eyebrow">
                         LET'S CONNECT
                     </span>
 
+
                     <h2>
                         Have questions?
                         <br />
-                        <strong>We're here to help.</strong>
+                        <strong>
+                            We're here to help.
+                        </strong>
                     </h2>
 
+
                     <p>
-                        Need help choosing the right health and wellness offer?
-                        Our team is happy to help you find the information
+                        Need help choosing the right health
+                        and wellness offer? Our team is happy
+                        to help you find the information
                         you're looking for.
                     </p>
 
-                    {/* Trust Features */}
+
+                    {/* =================================
+                        TRUST FEATURES
+                    ================================= */}
+
                     <div className="WebitecallPopup__features">
 
                         <div className="WebitecallPopup__feature">
                             <ShieldCheck size={17} />
-                            <span>Trusted support</span>
+                            <span>
+                                Trusted support
+                            </span>
                         </div>
+
 
                         <div className="WebitecallPopup__feature">
                             <Clock3 size={17} />
-                            <span>Quick response</span>
+                            <span>
+                                Quick response
+                            </span>
                         </div>
+
 
                         <div className="WebitecallPopup__feature">
                             <Headphones size={17} />
-                            <span>Friendly assistance</span>
+                            <span>
+                                Friendly assistance
+                            </span>
                         </div>
 
                     </div>
 
-                    {/* Call Button */}
+
+                    {/* =================================
+                        CALL BUTTON
+                    ================================= */}
+
                     <button
+                        type="button"
                         className="WebitecallPopup__button"
                         onClick={handleCall}
-                        type="button"
                     >
+
                         <span className="WebitecallPopup__button-icon">
                             <Phone size={19} />
                         </span>
 
+
                         <span className="WebitecallPopup__button-text">
-                            <small>Speak with our team</small>
-                            <strong>Call Now</strong>
+
+                            <small>
+                                Speak with our team
+                            </small>
+
+                            <strong>
+                                Call Now
+                            </strong>
+
                         </span>
+
 
                         <span className="WebitecallPopup__button-arrow">
                             →
                         </span>
+
                     </button>
 
-                    {/* Phone Number */}
+
+                    {/* PHONE NUMBER */}
+
                     <div className="WebitecallPopup__number">
                         {PHONE_NUMBER}
                     </div>
 
-                    {/* Note */}
+
+                    {/* NOTE */}
+
                     <p className="WebitecallPopup__note">
                         No pressure. Just helpful guidance.
                     </p>
 
                 </div>
+
             </div>
+
         </div>
     );
 }
 
 export default WebitecallPopup;
+

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./contact.css";
+import FinalCTA from "../../components/Final CTA/FinalCTA"
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -344,9 +345,12 @@ const Contact = () => {
                 </div>
             </section>
 
+
+
+
             {/* =================================================
           CTA SECTION
-      ================================================= */}
+         ================================================= */}
             <section className="contact-cta">
                 <div className="contact-cta__inner">
                     <span className="contact-cta__eyebrow">EXPLORE MYHEALTHMAKER</span>
@@ -362,6 +366,8 @@ const Contact = () => {
                     </a>
                 </div>
             </section>
+
+            <FinalCTA />
         </main>
     );
 };

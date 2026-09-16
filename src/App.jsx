@@ -17,6 +17,9 @@ import About from "./pages/About/About";
 import ProductDetails from "./pages/Products/ProductDetails";
 import Offers from "./pages/Offers/Offers";
 
+import FAQ from "./pages/FAQ/FAQ";
+import HealthGuides from "./pages/HealthGuides/HealthGuides";
+
 import WebitecallPopup from "./components/CallPopupoverweb/WebitecallPopup";
 
 /* =====================================================
@@ -66,6 +69,12 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/offers" element={<Offers />} />
+        <Route path="/faq" element={<FAQ />} />
+
+        <Route
+          path="/health-guides"
+          element={<HealthGuides />}
+        />
 
         {/* Product Details */}
         <Route

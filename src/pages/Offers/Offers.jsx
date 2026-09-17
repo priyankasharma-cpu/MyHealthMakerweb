@@ -30,6 +30,7 @@ const categories = [
     "Men's Health",
     "Women's Health",
     "Weight Loss",
+    "Male Enhancement"
 ];
 
 

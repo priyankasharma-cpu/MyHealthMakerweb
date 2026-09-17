@@ -3,13 +3,13 @@ const campaigns = [
 
     {
         id: 1,
-        name: "GLP-1",
-        slug: "glp-1",
+        name: "Trizepatide-Trimrx",
+        slug: "trizepatide-trimrx",
         category: "Weight Loss",
         categorySlug: "weightloss",
-        image: "/images/products/glp1-vial.webp",
+        image: "/images/products/producttrim.png",
         description:
-            "A wellness-focused solution designed to support healthy glucose levels and weight management.",
+            "A weight management option designed for adults exploring medically guided support as part of a broader wellness and lifestyle plan.",
         conversionRate: "2.45%",
         payout: "$130.00",
         earningsPerClick: "$3.94",
@@ -22,12 +22,12 @@ const campaigns = [
     {
         id: 2,
         name: "GLP-1 + GIP",
-        slug: "glp-1 + gip",
+        slug: "glp-1-gip",
         category: "Weight Loss",
         categorySlug: "weightloss",
         image: "/images/products/injectable-glp1-gip-2.png",
         description:
-            "Daily support for comfortable movement and healthy joint function.",
+            "A GLP-1 and GIP-based weight management option for adults seeking additional support alongside healthy nutrition and lifestyle habits.",
         conversionRate: "3.10%",
         payout: "$125.00",
         earningsPerClick: "$4.05",
@@ -44,7 +44,8 @@ const campaigns = [
         category: "Weight Loss",
         categorySlug: "weightloss",
         image: "/images/products/product5.webp",
-        description: "A daily weight management formula designed to support metabolism, digestion, and healthy weight-loss goals as part of a balanced lifestyle.",
+        description:
+            "A daily weight management formula positioned to complement balanced nutrition, regular activity, and everyday wellness goals.",
         conversionRate: "2.90%",
         payout: "$115.00",
         earningsPerClick: "$3.72",
@@ -62,7 +63,7 @@ const campaigns = [
         categorySlug: "male-enhancement",
         image: "/images/products/Product7.webp",
         description:
-            "A men's wellness formula designed to support daily vitality and confidence.",
+            "A men's wellness formula created for adults looking to support everyday vitality, energy, and confidence as part of a healthy lifestyle.",
         conversionRate: "3.05%",
         payout: "$145.00",
         earningsPerClick: "$4.12",
@@ -80,7 +81,7 @@ const campaigns = [
         categorySlug: "male-enhancement",
         image: "/images/products/manforccex.webp",
         description:
-            "A men's wellness formula designed to support daily vitality and confidence.",
+            "A men's wellness product designed for adults interested in supporting vitality, performance, and overall confidence.",
         conversionRate: "3.05%",
         payout: "$145.00",
         earningsPerClick: "$4.12",
@@ -89,9 +90,6 @@ const campaigns = [
         badge: "Top Offer",
         status: "active",
     },
-
-
-
 
     {
         id: 6,
@@ -99,9 +97,9 @@ const campaigns = [
         slug: "horse-boost",
         category: "Male Enhancement",
         categorySlug: "male-enhancement",
-        image: "/public/images/products/horseboost.webp",
+        image: "/images/products/horseboost.webp",
         description:
-            "A men's wellness formula designed to support daily vitality and confidence.",
+            "A men's vitality product intended for adults exploring additional support for energy, confidence, and everyday male wellness.",
         conversionRate: "3.05%",
         payout: "$145.00",
         earningsPerClick: "$4.12",
@@ -110,6 +108,61 @@ const campaigns = [
         badge: "Top Offer",
         status: "active",
     },
+
+    {
+        id: 7,
+        name: "Compounded-SemaGlutide",
+        slug: "compounded-semaglutide",
+        category: "Weight Loss",
+        categorySlug: "weightloss",
+        image: "/images/products/semaproduct.webp",
+        description:
+            "A compounded semaglutide weight management option intended for eligible adults seeking professionally guided support alongside lifestyle changes.",
+        conversionRate: "3.10%",
+        payout: "$125.00",
+        earningsPerClick: "$4.05",
+        allowedGeos: "USA - Worldwide",
+        restrictions: "No misleading claims",
+        badge: "Featured",
+        status: "active",
+    },
+
+    {
+        id: 8,
+        name: "GLP-1",
+        slug: "glp-1",
+        category: "Weight Loss",
+        categorySlug: "weightloss",
+        image: "/images/products/glp1-vial.webp",
+        description:
+            "A GLP-1-based weight management option for adults exploring additional support alongside nutrition, physical activity, and healthy lifestyle changes.",
+        conversionRate: "2.45%",
+        payout: "$130.00",
+        earningsPerClick: "$3.94",
+        allowedGeos: "Worldwide",
+        restrictions: "No Spam, No Brand Bidding, No SMS",
+        badge: "Featured",
+        status: "active",
+    },
+
+    {
+        id: 9,
+        name: "DomjonaNodex-Triplefatbpc",
+        slug: "domjonanodex-triplefatbpc",
+        category: "Weight Loss",
+        categorySlug: "weightloss",
+        image: "/images/products/triplarprouct.webp",
+        description:
+            "A weight management product option for adults exploring additional support for their nutrition, lifestyle, and healthy weight goals.",
+        conversionRate: "3.10%",
+        payout: "$125.00",
+        earningsPerClick: "$4.05",
+        allowedGeos: "USA - Worldwide",
+        restrictions: "No misleading claims",
+        badge: "Featured",
+        status: "active",
+    },
+
 
     /*   {
            id: 10,

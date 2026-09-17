@@ -35,9 +35,23 @@ const heroBanners = [
     },
 
     {
+        id: 5,
+        image: "/hero-banners/tipplebtc.webp",
+        product: "Weight Loss",
+        link: "https://example.com/weight-loss",
+    },
+
+    {
+        id: 6,
+        image: "/public/hero-banners/Semalythide.webp",
+        product: "Weight Loss",
+        link: "https://example.com/weight-loss",
+    },
+
+    {
         id: 7,
-        image: "/hero-banners/herobnner6.png",
-        product: "Body Health",
+        image: "/hero-banners/Trimrxbnner.webp",
+        product: "Weight Loss",
         link: "https://example.com/weight-loss",
     },
 
@@ -46,7 +60,9 @@ const heroBanners = [
         image: "/hero-banners/herobnner8.png",
         product: "Male Enhancement",
         link: "https://example.com/weight-loss",
-    },
+    }
+
+
 ];
 
 
@@ -273,8 +289,8 @@ const HeroCarousel = () => {
 
                 <div
                     className={`hero-carousel__track ${!enableTransition
-                            ? "hero-carousel__track--no-transition"
-                            : ""
+                        ? "hero-carousel__track--no-transition"
+                        : ""
                         }`}
                     style={{
                         transform: `translateX(-${currentSlide * 100
@@ -419,8 +435,8 @@ const HeroCarousel = () => {
                                     key={banner.id}
                                     type="button"
                                     className={`hero-carousel__dot ${activeDot === index
-                                            ? "is-active"
-                                            : ""
+                                        ? "is-active"
+                                        : ""
                                         }`}
                                     onClick={() =>
                                         goToSlide(index)
